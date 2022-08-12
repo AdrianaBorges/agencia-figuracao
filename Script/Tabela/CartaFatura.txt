@@ -1,0 +1,19 @@
+USE [dbAgencia]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create TABLE [dbo].[CartaFatura](
+	[idcarta] [int] IDENTITY(1,1) NOT NULL,
+	[idnota] [int] null,
+        [numcarta] [int] null,
+        [dtemissao] [datetime] null,
+        [idprograma] [int] null,
+        [status] [int] null, 
+	[observacao] [nvarchar](200) NULL
+
+) ON [PRIMARY]

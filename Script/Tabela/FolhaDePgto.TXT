@@ -1,0 +1,56 @@
+
+
+CREATE TABLE [dbo].[DadoExtraFolha](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idfolha] [int] NULL,
+	[idpessoa] [int] NULL,
+	[idremuneracao] [int] NULL,
+	[valor] [decimal](18, 2) NULL
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[DadoFolha](
+	[iddado] [int] IDENTITY(1,1) NOT NULL,
+	[idfolha] [int] NULL,
+	[tipo] [int] NULL,
+	[idpessoa] [int] NULL,
+	[idremuneracao] [int] NULL,
+	[descricao] [nvarchar](50) NULL,
+	[valor] [numeric](18, 2) NULL,
+	[idlancamento] [int] NULL,
+	[status] [int] NULL
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[DadoRemuneracao](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idpessoa] [int] NULL,
+	[idremuneracao] [int] NULL,
+	[valor] [decimal](18, 2) NULL
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[EquipePgPedido](
+	[idfolha] [int] NOT NULL,
+	[idpedido] [int] NOT NULL,
+	[idpessoa] [int] NOT NULL,
+	[idremuneracao] [int] NULL,
+	[valor] [decimal](18, 2) NOT NULL,
+	[status] [int] NOT NULL,
+	[idlancamento] [int] NULL
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[Folha](
+	[idfolha] [int] IDENTITY(1,1) NOT NULL,
+	[dtgeracao] [[datetime]] NULL,
+	[status] [int] NULL,
+	[mesref] [int] NULL,
+	[de] [[datetime]] NULL,
+	[ate] [[datetime]] NULL,
+	[descricao] [nvarchar](50) NULL,
+	[observacao] [nvarchar](max) NULL,
+	[dtliberacao] [[datetime]] NULL
+) ON [PRIMARY]
+
+

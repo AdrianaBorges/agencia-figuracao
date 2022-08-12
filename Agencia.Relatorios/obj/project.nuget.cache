@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LsGp0eRHOisCeWZ65T5jedIr/mqsIIdofxu8h4lb7qxiRJPJUJBaGBNkNRa5nqwEGsC0cQzFZsvzJ8H+o+99dQ==",
+  "success": true,
+  "projectFilePath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\Agencia.Relatorios.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\adrianaborges\\.nuget\\packages\\microsoft.reportviewer.common\\10.0.40219.1\\microsoft.reportviewer.common.10.0.40219.1.nupkg.sha512",
+    "C:\\Users\\adrianaborges\\.nuget\\packages\\microsoft.reportviewer.webforms\\10.0.40219.1\\microsoft.reportviewer.webforms.10.0.40219.1.nupkg.sha512"
+  ],
+  "logs": []
+}

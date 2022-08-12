@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E3E6EE3-6126-4AB6-AA19-1B20D32761AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Agencia.Infraestrutura.DAL</RootNamespace>
+    <AssemblyName>Agencia.Infraestrutura.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Data.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\Data.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\Bin\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgendamentoDao.cs" />
+    <Compile Include="AlvaraDao.cs" />
+    <Compile Include="BairroDao.cs" />
+    <Compile Include="BancoDao.cs" />
+    <Compile Include="CargoDao.cs" />
+    <Compile Include="CartaFaturaDao.cs" />
+    <Compile Include="CentroDeCustoDao.cs" />
+    <Compile Include="CidadeDao.cs" />
+    <Compile Include="ColaboradorDao.cs" />
+    <Compile Include="ContasAPagarDao.cs" />
+    <Compile Include="DadoBancarioDao.cs" />
+    <Compile Include="DadoProdutoDao.cs" />
+    <Compile Include="DadoRemuneracaoDao.cs" />
+    <Compile Include="EmpresaDao.cs" />
+    <Compile Include="Entidade.cs" />
+    <Compile Include="EquipePedidoDao.cs" />
+    <Compile Include="EstadoDao.cs" />
+    <Compile Include="FiguranteDao.cs" />
+    <Compile Include="FigurantePedidoDao.cs" />
+    <Compile Include="FirmaDao.cs" />
+    <Compile Include="FolhaDao.cs" />
+    <Compile Include="ItemPedidoDao.cs" />
+    <Compile Include="LogErroDao.cs" />
+    <Compile Include="AcessoDao.cs" />
+    <Compile Include="MarcaDao.cs" />
+    <Compile Include="ModeloDao.cs" />
+    <Compile Include="NotaFiscalDao.cs" />
+    <Compile Include="PedidoDao.cs" />
+    <Compile Include="ProdutoDao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemuneracaoDao.cs" />
+    <Compile Include="TipoFiguracaoDao.cs" />
+    <Compile Include="VeiculoDao.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Agencia.Dominio.Modelo\Agencia.Dominio.Modelo.csproj">
+      <Project>{81EC3B70-5F27-4237-8C36-AD1FF2E90566}</Project>
+      <Name>Agencia.Dominio.Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,14 @@
+
+
+
+
+1 - não consegue incluir fatura na nota fiscal
+
+2 - os dados da Model não estão sendo exibidos no relatório de pagamento diário
+
+3 - incluir a fatura 18570 na nota fiscal 1 da model
+corrigido
+
+4 - permitir que a Mira acesse toda a aplicação.
+não consegui simular
+

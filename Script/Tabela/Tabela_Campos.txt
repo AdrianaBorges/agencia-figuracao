@@ -1,0 +1,110 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Banco]    Script Date: 02/24/2014 22:49:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+CREATE TABLE Tabela 
+( 
+	idtabela INT IDENTITY (1,1) PRIMARY KEY 
+	, nome VARCHAR(50) NOT NULL 
+) 
+
+CREATE TABLE Campos 
+( 
+idcampo INT IDENTITY (1,1) PRIMARY KEY 
+, idtabela int, nme_catalog varchar(50), nme_schema varchar(50), nme_coluna varchar(50), tipo varchar(20), tamanho int 
+)
+
+select * from tabela
+
+
+insert into Tabela (nome) values ('Bairro')
+
+insert into Campos (idtabela, nme_catalog, nme_schema, nme_coluna, tipo, tamanho) values (1, 'luzecorcasting', 'dbo', 'idbairro', 'INT', 10)
+insert into Campos (idtabela, nme_catalog, nme_schema, nme_coluna, tipo, tamanho) values (1, 'luzecorcasting', 'dbo', 'nmebairro', 'nvarchar', 100)
+insert into Campos (idtabela, nme_catalog, nme_schema, nme_coluna, tipo, tamanho) values (1, 'luzecorcasting', 'dbo', 'idcidade', 'INT', 10)
+insert into Campos (idtabela, nme_catalog, nme_schema, nme_coluna, tipo, tamanho) values (1, 'luzecorcasting', 'dbo', 'cidade', 'nvarchar', 100)
+insert into Campos (idtabela, nme_catalog, nme_schema, nme_coluna, tipo, tamanho) values (1, 'luzecorcasting', 'dbo', 'estado', 'nvarchar', 100)
+insert into Campos (idtabela, nme_catalog, nme_schema, nme_coluna, tipo, tamanho) values (1, 'luzecorcasting', 'dbo', 'uf', 'nvarchar', 2)
+
+
+ 
+
+
+
+ USE [dbAgencia]
+GO
+/****** Object:  StoredProcedure [dbo].[p_baixaCachePorRecibo]    Script Date: 02/23/2014 11:00:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create PROCEDURE [dbo].[p_ValidaTabela]
+	@tabela nvarchar(30)
+	
+
+AS
+	declare
+	@idtabela int
+
+BEGIN
+
+	Begin Try
+		
+		Select @idtabela = idtabela From Tabela Where nome = @tabela
+
+		Begin tran
+
+
+		declare 
+			@wnome nvarchar(50), 
+			@wcatalog nvarchar(50), 
+			@wschema nvarchar(50), 
+			@wcoluna nvarchar(50),
+			@wtipo nvarchar(50),
+			@wtamanho int
+
+		declare cursor_temp cursor for
+			select t.nome, c.nme_catalog, c.nme_schema, c.nme_coluna, c.tipo, c.tamanho
+			from Campos c
+			inner join tabela t on t.idtabela = c.idtabela
+				where c.idtabela = @idtabela
+
+		open cursor_temp
+		fetch next from cursor_temp into @wnome, @wcatalog, @wschema, @wcoluna, @wtipo, @wtamanho
+
+		while @@fetch_status = 0
+		begin
+			update pedidofigurante set status = 1, dtpagamento = @databaixa, nrrb = @wwrecibo
+			where idpessoa = @idpessoa and id = @widregisgtro
+
+		fetch next from cursor_temp into @widregisgtro
+		end	
+
+		close cursor_temp
+		deallocate cursor_temp
+
+		delete from tmprecibo where idpessoa = @idpessoa and recibo = @nrrb
+		delete from tmppgto where idpessoa = @idpessoa and recibo = @nrrb
+
+		commit
+
+	End Try
+
+	Begin Catch
+		
+		rollback
+		Select ERROR_MESSAGE() as ErrorMessage
+
+	End Catch
+
+end

@@ -1,0 +1,32 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Pedido]    Script Date: 02/15/2014 23:25:13 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Pedido](
+	[dtcadastro] [date] NULL,
+	[idfirma] [int] null,
+	[idpedido] [int] NOT NULL,
+	[dtpedido] [date] NULL,
+	[status] [int] NULL,
+	[extra] [int] NULL,
+	[numpedido] [nvarchar](15) NULL,
+	[idempresa] [int] NULL,
+	[idprograma] [int] NULL,
+	[idcartafatura] [int] NULL,
+	[hora] [nchar](10) NULL,
+	[horaini] [nchar](10) NULL,
+	[horafim] [nchar](10) NULL,
+	[cena] [nvarchar](50) NULL,
+	[capitulo] [nvarchar](50) NULL,
+	[observacao] [nvarchar](max),
+) ON [PRIMARY]
+
+GO
+
+

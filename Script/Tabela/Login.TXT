@@ -1,0 +1,17 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Login]    Script Date: 04/10/2014 21:54:40 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Login](
+	[idpessoa] [int] NULL,
+	[senha] [nchar](10) NULL,
+	[login] [nvarchar](20) NULL
+) ON [PRIMARY]
+
+GO

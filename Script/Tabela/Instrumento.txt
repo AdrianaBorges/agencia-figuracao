@@ -1,0 +1,42 @@
+
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Instrumento]    Script Date: 03/05/2014 12:03:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Instrumento](
+	[idinstrumento] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[ItensInstrumento](
+	[iditem] [int] IDENTITY(1,1) NOT NULL,
+	[idpessoa] [int] NULL,
+	[idinstrumento] [int] null
+) ON [PRIMARY]
+
+insert into instrumento (descricao) values ('ACORDEÃO')
+insert into instrumento (descricao) values ('BANDOLIM')
+insert into instrumento (descricao) values ('BANJO')
+insert into instrumento (descricao) values ('BATERIA')
+insert into instrumento (descricao) values ('BERIMBAU')
+insert into instrumento (descricao) values ('BONGÓ')
+insert into instrumento (descricao) values ('CABAÇA')
+insert into instrumento (descricao) values ('CLARIM')
+insert into instrumento (descricao) values ('CLARINETE')
+insert into instrumento (descricao) values ('CONTRABAIXO')
+insert into instrumento (descricao) values ('CUÍCA')
+insert into instrumento (descricao) values ('FLAUTA')
+insert into instrumento (descricao) values ('PIANO')
+insert into instrumento (descricao) values ('SAX')
+insert into instrumento (descricao) values ('VIOLÃO')
+insert into instrumento (descricao) values ('VIOLINO')
+insert into instrumento (descricao) values ('PANDEIRO')
+

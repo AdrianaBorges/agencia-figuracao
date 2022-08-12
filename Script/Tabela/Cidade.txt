@@ -1,0 +1,52 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Cidade]    Script Date: 02/19/2014 12:12:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE TABLE [dbo].[Cidade](
+	[idcidade] [int] IDENTITY(1,1) NOT NULL,
+	[idestado] [int] NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+
+http://www.cdbrasil.cnpm.embrapa.br/rj/txt/muni.htm
+
+insert into cidade (idestado,descricao) values (1,'RIO DE JANEIRO')
+insert into cidade (idestado,descricao) values (1,'ANGRA DOS REIS')
+insert into cidade (idestado,descricao) values (1,'APERIBE')
+insert into cidade (idestado,descricao) values (1,'ARARUAMA')
+insert into cidade (idestado,descricao) values (1,'AREAL')
+insert into cidade (idestado,descricao) values (1,'ARMAÇÃO DE BUZIOS')
+insert into cidade (idestado,descricao) values (1,'ARRAIAL DO CABO')
+insert into cidade (idestado,descricao) values (1,'BARRA MANSA')
+insert into cidade (idestado,descricao) values (1,'BARRA DO PIRAI')
+insert into cidade (idestado,descricao) values (1,'BELFORD ROXO')
+insert into cidade (idestado,descricao) values (1,'BOM JARDIM')
+insert into cidade (idestado,descricao) values (1,'BOM JESUS DO ITABAPOAMA')
+insert into cidade (idestado,descricao) values (1,'CABO FRIO')
+insert into cidade (idestado,descricao) values (1,'CACHOEIRAS DE MACACU')
+insert into cidade (idestado,descricao) values (1,'CAMBUCI')
+insert into cidade (idestado,descricao) values (1,'CAMPOS DOS GOYTACAZES')
+insert into cidade (idestado,descricao) values (1,'CANTAGALO')
+insert into cidade (idestado,descricao) values (1,'CARAPEBUS')
+insert into cidade (idestado,descricao) values (1,'CARDOSO MOREIRA')
+insert into cidade (idestado,descricao) values (1,'CARMO')
+insert into cidade (idestado,descricao) values (1,'CASIMIRO DE ABREU')
+insert into cidade (idestado,descricao) values (1,'COMENDADOR LEBY GASPARIAN')
+insert into cidade (idestado,descricao) values (1,'CONCEICAO DE MACABU')
+insert into cidade (idestado,descricao) values (1,'CORDEIRO')
+insert into cidade (idestado,descricao) values (1,'DUAS BARRAS')
+insert into cidade (idestado,descricao) values (1,'DUQUE DE CAXIAS')
+insert into cidade (idestado,descricao) values (1,'ENGENHEIRO PAULO DE FRONTIN')
+insert into cidade (idestado,descricao) values (1,'GUAPIMIRIM')
+
+insert into cidade (idestado,descricao) values (1,'')
+insert into cidade (idestado,descricao) values (1,'')
+

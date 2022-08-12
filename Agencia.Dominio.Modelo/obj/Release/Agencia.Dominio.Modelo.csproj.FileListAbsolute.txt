@@ -1,0 +1,8 @@
+F:\ProjetoAgencia\Agencia.Dominio.Modelo\bin\Release\Agencia.Dominio.Modelo.dll
+F:\ProjetoAgencia\Agencia.Dominio.Modelo\bin\Release\Agencia.Dominio.Modelo.pdb
+F:\ProjetoAgencia\Agencia.Dominio.Modelo\obj\Release\Agencia.Dominio.Modelo.dll
+F:\ProjetoAgencia\Agencia.Dominio.Modelo\obj\Release\Agencia.Dominio.Modelo.pdb
+C:\ProjetoAgencia\Agencia.Dominio.Modelo\bin\Release\Agencia.Dominio.Modelo.dll
+C:\ProjetoAgencia\Agencia.Dominio.Modelo\bin\Release\Agencia.Dominio.Modelo.pdb
+C:\ProjetoAgencia\Agencia.Dominio.Modelo\obj\Release\Agencia.Dominio.Modelo.dll
+C:\ProjetoAgencia\Agencia.Dominio.Modelo\obj\Release\Agencia.Dominio.Modelo.pdb

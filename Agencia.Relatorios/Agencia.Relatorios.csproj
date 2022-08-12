@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8A32140-5832-4229-B8E0-9A317EEDC618}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Agencia.Relatorios</RootNamespace>
+    <AssemblyName>Agencia.Relatorios</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Data.Base">
+      <HintPath>..\Bin\Data.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\Bin\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dbAgenciaDataSet.cs">
+      <DependentUpon>dbAgenciaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dbAgenciaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbAgenciaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormataDado.cs" />
+    <Compile Include="frmBeneficioPessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBeneficioPessoa.Designer.cs">
+      <DependentUpon>frmBeneficioPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCachePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCachePago.Designer.cs">
+      <DependentUpon>frmCachePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsolidado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsolidado.Designer.cs">
+      <DependentUpon>frmConsolidado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEnviaEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEnviaEmail.Designer.cs">
+      <DependentUpon>frmEnviaEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformeINSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeINSS.Designer.cs">
+      <DependentUpon>frmInformeINSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPosicaoCachePorNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPosicaoCachePorNota.Designer.cs">
+      <DependentUpon>frmPosicaoCachePorNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecibo.Designer.cs">
+      <DependentUpon>frmRecibo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReciboCache.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReciboCache.Designer.cs">
+      <DependentUpon>frmReciboCache.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecolheInss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecolheInss.Designer.cs">
+      <DependentUpon>frmRecolheInss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioDeAlvara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioDeAlvara.Designer.cs">
+      <DependentUpon>frmRelatorioDeAlvara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResumoNF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResumoNF.Designer.cs">
+      <DependentUpon>frmResumoNF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewColumnSorter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ValidaEnvio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Alvara.rdlc" />
+    <EmbeddedResource Include="consolidado.rdlc" />
+    <EmbeddedResource Include="frmBeneficioPessoa.resx">
+      <DependentUpon>frmBeneficioPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCachePago.resx">
+      <DependentUpon>frmCachePago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsolidado.resx">
+      <DependentUpon>frmConsolidado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEnviaEmail.resx">
+      <DependentUpon>frmEnviaEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformeINSS.resx">
+      <DependentUpon>frmInformeINSS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPosicaoCachePorNota.resx">
+      <DependentUpon>frmPosicaoCachePorNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecibo.resx">
+      <DependentUpon>frmRecibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReciboCache.resx">
+      <DependentUpon>frmReciboCache.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecolheInss.resx">
+      <DependentUpon>frmRecolheInss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioDeAlvara.resx">
+      <DependentUpon>frmRelatorioDeAlvara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResumoNF.resx">
+      <DependentUpon>frmResumoNF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pendenciaAgrupadaPorBanco.rdlc" />
+    <EmbeddedResource Include="pendenciaPorNota.rdlc" />
+    <EmbeddedResource Include="pendenciaTotalNotas.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="recibo.rdlc" />
+    <EmbeddedResource Include="reciboCache.rdlc" />
+    <EmbeddedResource Include="cachePagoPorNota.rdlc" />
+    <EmbeddedResource Include="cachePendentPorNota.rdlc" />
+    <EmbeddedResource Include="cachePgtoPeriodo.rdlc" />
+    <EmbeddedResource Include="beneficioPessoa.rdlc" />
+    <EmbeddedResource Include="recolheInss.rdlc" />
+    <EmbeddedResource Include="resumoNota.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="dbAgenciaDataSet.xsc">
+      <DependentUpon>dbAgenciaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbAgenciaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbAgenciaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dbAgenciaDataSet.xss">
+      <DependentUpon>dbAgenciaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Agencia.Dominio.Modelo\Agencia.Dominio.Modelo.csproj">
+      <Project>{81ec3b70-5f27-4237-8c36-ad1ff2e90566}</Project>
+      <Name>Agencia.Dominio.Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Agencia.Dominio.Repositorio\Agencia.Dominio.Repositorio.csproj">
+      <Project>{51d0a909-dfff-4340-ac77-264bd1df8d28}</Project>
+      <Name>Agencia.Dominio.Repositorio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Agencia.Dominio.Servico\Agencia.Dominio.Servico.csproj">
+      <Project>{b4d55641-02ff-4179-8cfe-f4f12d086804}</Project>
+      <Name>Agencia.Dominio.Servico</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Agencia.Infraestrutura.DAL\Agencia.Infraestrutura.DAL.csproj">
+      <Project>{8e3e6ee3-6126-4ab6-aa19-1b20d32761ab}</Project>
+      <Name>Agencia.Infraestrutura.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ReportViewer.Common">
+      <Version>10.0.40219.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ReportViewer.WebForms">
+      <Version>10.0.40219.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

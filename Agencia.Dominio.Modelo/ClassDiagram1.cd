@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Agencia.Dominio.Modelo.Acesso" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acesso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Bairro" Collapsed="true">
+    <Position X="20.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAAAAAAAAAAAAQAAAAAAAAAAAAAQAAAgAAMA=</HashCode>
+      <FileName>Bairro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Banco" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Banco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Cargo" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Cidade" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Cidade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Colaborador" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAIAAAAAAAAAAIAAAACAAAAAAACAAEBAAAAA=</HashCode>
+      <FileName>Colaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.DadoBancario" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAmIAAAAAAAAACAAAAAAQAAAAAAAAQAAAAAAAQ=</HashCode>
+      <FileName>DadoBancario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.DadoProduto" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>DadoProduto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.DadoRemuneracao" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAgAAAAAAAAAAEEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DadoRemuneracao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Estado" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAgAAAA=</HashCode>
+      <FileName>Estado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Figurante" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUBHADgAADFBAiAAgAAIpAAIAEYIAAAIAAAIAAQAAgA=</HashCode>
+      <FileName>Figurante.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.LogErro" Collapsed="true">
+    <Position X="23.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAABAAAAAAAAAAAAIAAAABAAAAAAAAAAAEA=</HashCode>
+      <FileName>LogErro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Pedido" Collapsed="true">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iBAAAABEAAAAAAAAhgAQggAEBEAAQEAQBEAAAQAAAgA=</HashCode>
+      <FileName>Pedido.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Pessoa" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKAQkACAAECIEgAACAAKAAAAAAUAAAAAKAAmAQMk=</HashCode>
+      <FileName>Pessoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Produto" Collapsed="true">
+    <Position X="23.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAABAAAAAAAAAAAAAAAAABAAAAAAAQAAAgA=</HashCode>
+      <FileName>Produto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Remuneracao" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Remuneracao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Veiculo" Collapsed="true">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Veiculo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Modelo" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Veiculo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Marca" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Veiculo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agencia.Dominio.Modelo.Empresa">
+    <Position X="13.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIABAAAAAAAAAAAAAAAAAAAAAEAAAAAAAgA=</HashCode>
+      <FileName>Empresa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

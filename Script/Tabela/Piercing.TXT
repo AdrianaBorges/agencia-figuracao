@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[Piercing](
+	[idPiercing] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+insert into piercing (descricao) values ('BOCA')
+insert into piercing (descricao) values ('DENTE')
+insert into piercing (descricao) values ('LINGUA')
+insert into piercing (descricao) values ('NARIZ')
+insert into piercing (descricao) values ('ORELHA')
+insert into piercing (descricao) values ('SOBRANCELHA')
+insert into piercing (descricao) values ('UMBIGO')
+

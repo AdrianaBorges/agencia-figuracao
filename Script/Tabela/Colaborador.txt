@@ -1,0 +1,11 @@
+USE [dbAgencia]
+GO
+
+
+CREATE TABLE [dbo].[Colaborador](
+	[idpessoa] [int] NOT NULL,
+	[idcargo] [int] NULL,
+	[dtdesligamento] [date] NULL,
+	[clt] [int] NULL,
+	[comissao] [int] NULL
+) ON [PRIMARY]

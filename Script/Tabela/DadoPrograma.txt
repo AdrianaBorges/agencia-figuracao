@@ -1,0 +1,16 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Banco]    Script Date: 02/24/2014 22:49:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create TABLE [dbo].[DadoPrograma](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idprograma] [int] NULL,
+	[idpessoa] [int] NULL,
+	[dtregistro] [date] NULL
+) ON [PRIMARY]

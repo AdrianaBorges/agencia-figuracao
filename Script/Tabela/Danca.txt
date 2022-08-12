@@ -1,0 +1,47 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Danca]    Script Date: 24/04/2014 12:03:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Danca](
+	[iddanca] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[ItensDanca](
+	[iditem] [int] IDENTITY(1,1) NOT NULL,
+	[idpessoa] int NULL,
+	[iddanca] int NULL
+) ON [PRIMARY]
+
+GO
+
+insert into danca (descricao) values ('BALE')
+insert into danca (descricao) values ('BOLERO')
+insert into danca (descricao) values ('CIGANA')
+insert into danca (descricao) values ('DANÇA DE SALÃO')
+insert into danca (descricao) values ('FORRO')
+insert into danca (descricao) values ('FUNK')
+insert into danca (descricao) values ('HIP HOP')
+insert into danca (descricao) values ('JAZZ')
+insert into danca (descricao) values ('LAMBADA')
+insert into danca (descricao) values ('PAGODE')
+insert into danca (descricao) values ('SALSA')
+insert into danca (descricao) values ('SAMBA')
+insert into danca (descricao) values ('SAPATEADO')
+insert into danca (descricao) values ('SERTANEJO')
+insert into danca (descricao) values ('STREAP-TEASE')
+insert into danca (descricao) values ('STREET DANCE')
+insert into danca (descricao) values ('TANGO')
+insert into danca (descricao) values ('TODOS OS RITMOS')
+insert into danca (descricao) values ('TRIBAL')
+insert into danca (descricao) values ('VALSA')
+insert into danca (descricao) values ('VENTRE')
+insert into danca (descricao) values ('ZOOK')
+
+

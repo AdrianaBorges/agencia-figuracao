@@ -1,0 +1,30 @@
+
+CREATE TABLE [dbo].[Pessoa](
+	[idpessoa] [int] IDENTITY(1,1) NOT NULL,
+	[idtipopessoa] [int] NULL,
+	[acesso] [int] NULL,
+	[nmepessoa] [nvarchar](100) NULL,
+	[sexo] [nchar](1) NULL,
+	[dtnascimento] [date] NULL,
+	[dtcadastro] [date] NULL,
+	[status] [nchar](1) NULL,
+	[idbairro] [int] NULL,
+	[logradouro] [nvarchar](100) NULL,
+	[complemento] [nvarchar](100) NULL,
+	[cep] [nchar](8) NULL,
+	[cpf] [nvarchar](15) NULL,
+	[rg] [nvarchar](15) NULL,
+	[cnpj] [nvarchar](15) NULL,
+	[expedicao] [nvarchar](20) NULL,
+	[pis] [nvarchar](15) NULL,
+	[ctps] [nvarchar](20) NULL,
+	[serie] [nvarchar](15) NULL,
+	[cartreservista] [nvarchar](30) NULL,
+	[fixo] [nvarchar](10) NULL,
+	[celular] [nvarchar](10) NULL,
+	[contato] [nvarchar](10) NULL,
+	[email] [nvarchar](100) NULL
+) ON [PRIMARY]
+
+
+

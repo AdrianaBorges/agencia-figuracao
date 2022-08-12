@@ -1,0 +1,44 @@
+USE [dbAgencia]
+GO
+
+CREATE TABLE [dbo].[Base](
+	[idbase] [int] NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+
+insert into Base (idbase, descricao) Values (1,'RECEITA')
+insert into Base (idbase, descricao) Values (2,'DESPESA')
+
+CREATE TABLE [dbo].[CentralDeCusto](
+[idcentraldecusto] [int],
+	[idbase] [int],
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+
+INSERT INTO CentralDeCusto (idcentraldecusto, idbase, descricao) values (1,1,'NOTA FISCAL')
+INSERT INTO CentralDeCusto (idcentraldecusto, idbase, descricao) values (2,2,'ADMINISTRAÇÃO')
+INSERT INTO CentralDeCusto (idcentraldecusto, idbase, descricao) values (3,2,'FIGURAÇÃO')
+INSERT INTO CentralDeCusto (idcentraldecusto, idbase, descricao) values (4,2,'PRESTADOR DE SERVIÇO')
+INSERT INTO CentralDeCusto (idcentraldecusto, idbase, descricao) values (5,2,'COLABORADOR')
+
+CREATE TABLE [dbo].[CentroDeCusto](
+[idcusto] [int],
+	[idcentraldecusto] [int],
+	[descricao] [nvarchar](50) NULL,
+	[observacao] [nvarchar](100) NULL
+) ON [PRIMARY]
+
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (1,2, 'PLANO DE SAÚDE', 'PGT. DE PLANO DE SAÚDE DE FUNCIONÁRIOS')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (2,2, 'VALE TRANSPORTE', 'PGT. DE VALE TRANSPORTE')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (3,2, 'ADIANTAMENTO', 'PGT. DE ADIANTAMENTO DE COLABORADORES')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (4,2, 'TELEFONE', 'INFORMAR O ENDEREÇO')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (5,2, 'LIGHT', 'INFORMAR O ENDEREÇO')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (6,2, 'ALUGUEL', 'INFORMAR O ENDEREÇO')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (7,2, 'CEG', 'INFORMAR O ENDEREÇO')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (8,2, 'FOLHA DE PAGAMENTO', '')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (9,2, 'LOCAWEB ', '')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (10,2, 'PRESTAÇÃO DE SERVIÇO', '')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (11,1, 'NOTA FISCAL', 'RECEBIMENTO DE NOTA FISCAL')
+insert into CentroDeCusto (idcusto, idcentraldecusto, descricao, observacao) values (12,1, 'PAGAMENTO DE CACHE', '')

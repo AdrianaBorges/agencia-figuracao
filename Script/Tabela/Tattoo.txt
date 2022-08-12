@@ -1,0 +1,41 @@
+
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Tattoo]    Script Date: 03/05/2014 12:03:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Tattoo](
+	[idpessoa] [int] IDENTITY(1,1) NOT NULL,
+	[tattoo] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[ItensTattoo](
+	[iditem] [int] IDENTITY(1,1) NOT NULL,
+	[idpessoa] [int] NULL,
+	[idtattoo] [int] null
+) ON [PRIMARY]
+
+insert into tattoo (descricao) values ('ABDOMEN')
+insert into tattoo (descricao) values ('ANTEBRAÇO')
+insert into tattoo (descricao) values ('BRAÇO')
+insert into tattoo (descricao) values ('COSTAS')
+insert into tattoo (descricao) values ('COXA')
+insert into tattoo (descricao) values ('NADEGAS')
+insert into tattoo (descricao) values ('NUCA')
+insert into tattoo (descricao) values ('OMBRO')
+insert into tattoo (descricao) values ('PANTURRILHA')
+insert into tattoo (descricao) values ('PEITO')
+insert into tattoo (descricao) values ('PERNA')
+insert into tattoo (descricao) values ('PÉS')
+insert into tattoo (descricao) values ('PESCOÇO')
+insert into tattoo (descricao) values ('PULSO')
+insert into tattoo (descricao) values ('VIRILHA')
+
+

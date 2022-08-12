@@ -1,0 +1,19 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[EquipePedido]    Script Date: 02/15/2014 23:25:13 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[EquipePedido](
+	[idequipe] [int] IDENTITY(1,1) NOT NULL,
+	[idpedido] [int] NOT NULL,
+	[idpessoa] [int] NULL,
+	[idcargo] [int] NULL
+
+) ON [PRIMARY]
+
+GO

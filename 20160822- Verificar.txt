@@ -1,0 +1,30 @@
+
+
+
+MODULO: Pedido de Gravação
+- Filtro principal não responde;
+- Criar opção de informar se o pedido possui adendo;
+
+MÓDULO: Carta Fatura
+- Na tela "Carta Fatura", ao gravar uma nova fatura, a label que contén o número da fatura não está atualizando;
+
+MÓDULO: Pagamento de Figuração
+- Verificar baixa coletiva (Baixa pela nota fiscal)
+
+
+
+
+
+            if (cboNmeFirma.Selected)
+            {
+                IdNotaFiscal = Convert.ToInt32(RepositorioDeNotasFiscais.Retorna.IdNotaFiscal(Convert.ToInt32(cmbNotaFiscal.Text), IdFirma));
+            }
+
+
+
+
+			            btnFiltrar_Click();
+
+						
+						Caminho recepção
+						\\Servidor\borges.agf\VS1208

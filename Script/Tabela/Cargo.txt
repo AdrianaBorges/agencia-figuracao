@@ -1,0 +1,19 @@
+USE [dbAgencia]
+GO
+
+CREATE TABLE [dbo].[Cargo](
+	[idcargo] [int] NOT NULL,
+	[descricao] [nvarchar](50) NULL,
+	[idpermissao] [int] NULL
+) ON [PRIMARY]
+
+
+
+--Dados fixos da tabela
+insert into cargo (idcargo, descricao, idpermissao) values (1,'RECEPCIONISTA',3)
+insert into cargo (idcargo, descricao, idpermissao) values (2,'PRODUTOR(A)',3)
+insert into cargo (idcargo, descricao, idpermissao) values (3,'ADMINISTRADOR(A)',6)
+insert into cargo (idcargo, descricao, idpermissao) values (4,'FISCAL',3)
+insert into cargo (idcargo, descricao, idpermissao) values (5,'DESENVOLVIMENTO',10)
+insert into cargo (idcargo, descricao, idpermissao) values (6,'APOIO',3)
+insert into cargo (idcargo, descricao, idpermissao) values (7,'PRESTADOR DE SERVIÇO',0)

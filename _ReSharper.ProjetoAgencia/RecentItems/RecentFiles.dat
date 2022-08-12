@@ -1,0 +1,66 @@
+﻿<RecentFiles>
+  <RecentFiles>
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_Create_Tabela.sql/s:..?p_Create_Tabela.sql" caret="433" fromTop="19" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaBairro.sql/s:..?p_listaBairro.sql" caret="21" fromTop="2" />
+    <File id="66253144-DB1C-445E-BDD8-BDE0EA129CC6/f:Bairro.txt/s:..?Bairro.txt" caret="168" fromTop="10" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaBairroPorCidade.sql/s:..?p_listaBairroPorCidade.sql" caret="0" fromTop="0" />
+    <File id="66253144-DB1C-445E-BDD8-BDE0EA129CC6/f:Banco.txt/s:..?Banco.txt" caret="0" fromTop="0" />
+    <File id="66253144-DB1C-445E-BDD8-BDE0EA129CC6/f:Cargo.txt/s:..?Cargo.txt" caret="0" fromTop="0" />
+    <File id="66253144-DB1C-445E-BDD8-BDE0EA129CC6/f:Cidade.txt/s:..?Cidade.txt" caret="0" fromTop="0" />
+    <File id="66253144-DB1C-445E-BDD8-BDE0EA129CC6/f:Colaborador.txt/s:..?Colaborador.txt" caret="0" fromTop="0" />
+    <File id="66253144-DB1C-445E-BDD8-BDE0EA129CC6/f:DadoBancario.txt/s:..?DadoBancario.txt" caret="167" fromTop="9" />
+    <File id="8E3E6EE3-6126-4AB6-AA19-1B20D32761AB/f:LogErroDao.cs" caret="0" fromTop="0" />
+    <File id="8E3E6EE3-6126-4AB6-AA19-1B20D32761AB/f:BancoDao.cs" caret="154" fromTop="7" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeAcesso.cs" caret="5441" fromTop="34" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeBairros.cs" caret="1638" fromTop="34" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeBancos.cs" caret="981" fromTop="34" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeCargos.cs" caret="984" fromTop="34" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeCidades.cs" caret="1637" fromTop="34" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeEstados.cs" caret="987" fromTop="34" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeProdutos.cs" caret="8331" fromTop="34" />
+    <File id="B7418BEA-A7BE-4CC0-A6AB-BA7A1BDDFDE8/f:frmColaborador.Designer.cs" caret="87317" fromTop="12" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_RegistraColaborador.sql/s:..?p_RegistraColaborador.sql" caret="0" fromTop="0" />
+    <File id="66253144-DB1C-445E-BDD8-BDE0EA129CC6/f:RegistroLog.txt/s:..?RegistroLog.txt" caret="0" fromTop="0" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeLogErro.cs" caret="1012" fromTop="14" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_RecuperaColaboradorPorId.sql/s:..?p_RecuperaColaboradorPorId.sql" caret="323" fromTop="10" />
+    <File id="8E3E6EE3-6126-4AB6-AA19-1B20D32761AB/f:ColaboradorDao.cs" caret="6344" fromTop="69" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeColaboradores.cs" caret="1847" fromTop="22" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_RecuperaDadoBancarioPorId.sql/s:..?p_RecuperaDadoBancarioPorId.sql" caret="421" fromTop="18" />
+    <File id="8E3E6EE3-6126-4AB6-AA19-1B20D32761AB/f:DadoBancarioDao.cs" caret="3768" fromTop="31" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeDadosBancarios.cs" caret="1708" fromTop="19" />
+    <File id="81EC3B70-5F27-4237-8C36-AD1FF2E90566/f:Pessoa.cs" caret="1412" fromTop="20" />
+    <File id="B7418BEA-A7BE-4CC0-A6AB-BA7A1BDDFDE8/f:frmColaborador.cs" caret="7652" fromTop="16" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_RegistraColaborador.sql/s:..?p_RegistraColaborador.sql" caret="20" fromTop="2" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaDadoBancario.sql/s:..?p_listaDadoBancario.sql" caret="462" fromTop="13" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaBairroPorCidade.sql/s:..?p_listaBairroPorCidade.sql" caret="28" fromTop="3" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaBairro.sql/s:..?p_listaBairro.sql" caret="28" fromTop="3" />
+    <File id="B7418BEA-A7BE-4CC0-A6AB-BA7A1BDDFDE8/f:App.config" caret="237" fromTop="6" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaBanco.sql/s:..?p_listaBanco.sql" caret="29" fromTop="3" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaCidades.sql/s:..?p_listaCidades.sql" caret="28" fromTop="3" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaCidadesPorEstado.sql/s:..?p_listaCidadesPorEstado.sql" caret="28" fromTop="3" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaColaborador.sql/s:..?p_listaColaborador.sql" caret="29" fromTop="3" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaEstados.sql/s:..?p_listaEstados.sql" caret="28" fromTop="3" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_listaUsuario.sql/s:..?p_listaUsuario.sql" caret="29" fromTop="4" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_RegistraLog.sql/s:..?p_RegistraLog.sql" caret="22" fromTop="3" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_Create_Tabela.sql/s:..?p_Create_Tabela.sql" caret="433" fromTop="19" />
+    <File id="66253144-DB1C-445E-BDD8-BDE0EA129CC6/f:Bairro.txt/s:..?Bairro.txt" caret="168" fromTop="10" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeAcesso.cs" caret="5088" fromTop="24" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeBairros.cs" caret="1250" fromTop="32" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeBancos.cs" caret="595" fromTop="24" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeCargos.cs" caret="598" fromTop="24" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeCidades.cs" caret="1249" fromTop="26" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeEstados.cs" caret="601" fromTop="24" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeProdutos.cs" caret="9792" fromTop="34" />
+    <File id="B7418BEA-A7BE-4CC0-A6AB-BA7A1BDDFDE8/f:frmColaborador.Designer.cs" caret="87317" fromTop="12" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeLogErro.cs" caret="1012" fromTop="21" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeColaboradores.cs" caret="2406" fromTop="17" />
+    <File id="8E3E6EE3-6126-4AB6-AA19-1B20D32761AB/f:ColaboradorDao.cs" caret="7925" fromTop="32" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_RecuperaColaboradorPorId.sql/s:..?p_RecuperaColaboradorPorId.sql" caret="323" fromTop="10" />
+    <File id="8E3E6EE3-6126-4AB6-AA19-1B20D32761AB/f:DadoBancarioDao.cs" caret="888" fromTop="5" />
+    <File id="51D0A909-DFFF-4340-AC77-264BD1DF8D28/f:RepositorioDeDadosBancarios.cs" caret="1274" fromTop="22" />
+    <File id="74BEEBE9-D5EB-415B-BFE7-E47180BC2BAF/f:p_RecuperaDadoBancarioPorId.sql/s:..?p_RecuperaDadoBancarioPorId.sql" caret="421" fromTop="18" />
+    <File id="B7418BEA-A7BE-4CC0-A6AB-BA7A1BDDFDE8/f:frmColaborador.cs" caret="10606" fromTop="16" />
+  </RecentEdits>
+</RecentFiles>

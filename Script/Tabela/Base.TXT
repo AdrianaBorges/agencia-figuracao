@@ -1,0 +1,20 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Banco]    Script Date: 02/15/2014 22:49:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Base](
+	[idbase] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+
+insert into base (descricao) values ('RECEITA')
+insert into base (descricao) values ('DESPESA')

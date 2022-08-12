@@ -1,0 +1,7 @@
+create PROCEDURE [dbo].[p_listaProduto]
+AS
+BEGIN
+        select idprograma, descricao, observacao
+	from programa order by descricao
+
+END

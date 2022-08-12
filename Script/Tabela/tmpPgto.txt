@@ -1,0 +1,17 @@
+USE [dbAgencia]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tmpPgto](
+	[recibo] [decimal](14, 0) NULL,
+	[idpessoa] [int] NULL,
+	[idregistro] [int] NULL,
+	[idpedido] [int] NULL
+) ON [PRIMARY]
+
+GO

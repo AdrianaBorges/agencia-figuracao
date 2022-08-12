@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81EC3B70-5F27-4237-8C36-AD1FF2E90566}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Agencia.Dominio.Modelo</RootNamespace>
+    <AssemblyName>Agencia.Dominio.Modelo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agendamento.cs" />
+    <Compile Include="Alvara.cs" />
+    <Compile Include="Bairro.cs" />
+    <Compile Include="Banco.cs" />
+    <Compile Include="Base.cs" />
+    <Compile Include="Cargo.cs" />
+    <Compile Include="CartaFatura.cs" />
+    <Compile Include="CentralDeCusto.cs" />
+    <Compile Include="CentroDeCusto.cs" />
+    <Compile Include="Cidade.cs" />
+    <Compile Include="Colaborador.cs" />
+    <Compile Include="ContasAPagar.cs" />
+    <Compile Include="DadoAlvara.cs" />
+    <Compile Include="DadoBancario.cs" />
+    <Compile Include="DadoProduto.cs" />
+    <Compile Include="DadoRemuneracao.cs" />
+    <Compile Include="Empresa.cs" />
+    <Compile Include="EquipePedido.cs" />
+    <Compile Include="Estado.cs" />
+    <Compile Include="Figurante.cs" />
+    <Compile Include="PedidoFigurante.cs" />
+    <Compile Include="Firma.cs" />
+    <Compile Include="Folha.cs" />
+    <Compile Include="ItemPedido.cs" />
+    <Compile Include="LogErro.cs" />
+    <Compile Include="Acesso.cs" />
+    <Compile Include="NotaFiscal.cs" />
+    <Compile Include="Pedido.cs" />
+    <Compile Include="Pessoa.cs" />
+    <Compile Include="PrestadorDeServico.cs" />
+    <Compile Include="Produto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Remuneracao.cs" />
+    <Compile Include="TipoFiguracao.cs" />
+    <Compile Include="Veiculo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

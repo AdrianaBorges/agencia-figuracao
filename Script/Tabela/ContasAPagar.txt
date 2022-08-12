@@ -1,0 +1,23 @@
+
+USE [dbAgencia]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create TABLE [dbo].[ContasAPagar](
+	[idcontaapagar] [int] IDENTITY(1,1) NOT NULL,
+	[idcusto] [int] null,
+	[idpessoa] [int] null,
+	[data] [datetime] null,
+	[descricao] [nvarchar](100) NULL,
+	[vencimento] [datetime] null,
+	[valor] [decimal](18,2),
+	[observacao] [nvarchar](max) NULL,
+	[status] [int],
+	[dtpagamento] [datetime] null
+	
+) ON [PRIMARY]

@@ -1,0 +1,25 @@
+USE [dbAgencia]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[FigurantePedido](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idpedido] [int] null,
+	[idtipo] [int] null,
+	[idpessoa] [int] null,
+	[vlrbruto] [decimal](18,2),
+	[vlrinss] [decimal](18,2),
+	[vlrliquido] [decimal](18,2),
+	[idlancamento] [int] null,
+	[status] [int] null,
+	[dtpagamento] [datetime] null,
+	[nrrb] [numeric] (14,0) null
+	
+) ON [PRIMARY]
+
+GO

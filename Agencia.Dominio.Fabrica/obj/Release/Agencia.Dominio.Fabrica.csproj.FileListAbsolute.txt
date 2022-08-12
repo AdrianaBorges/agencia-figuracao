@@ -1,0 +1,8 @@
+F:\ProjetoAgencia\Agencia.Dominio.Fabrica\bin\Release\Agencia.Dominio.Fabrica.dll
+F:\ProjetoAgencia\Agencia.Dominio.Fabrica\bin\Release\Agencia.Dominio.Fabrica.pdb
+F:\ProjetoAgencia\Agencia.Dominio.Fabrica\obj\Release\Agencia.Dominio.Fabrica.dll
+F:\ProjetoAgencia\Agencia.Dominio.Fabrica\obj\Release\Agencia.Dominio.Fabrica.pdb
+C:\ProjetoAgencia\Agencia.Dominio.Fabrica\bin\Release\Agencia.Dominio.Fabrica.dll
+C:\ProjetoAgencia\Agencia.Dominio.Fabrica\bin\Release\Agencia.Dominio.Fabrica.pdb
+C:\ProjetoAgencia\Agencia.Dominio.Fabrica\obj\Release\Agencia.Dominio.Fabrica.dll
+C:\ProjetoAgencia\Agencia.Dominio.Fabrica\obj\Release\Agencia.Dominio.Fabrica.pdb

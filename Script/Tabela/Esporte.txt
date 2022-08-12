@@ -1,0 +1,54 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Esporte]    Script Date: 24/04/2014 12:03:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Esporte](
+	[idesporte] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+
+insert into Esporte (descricao) values ('BASQUETE')
+insert into Esporte (descricao) values ('BICICLETA')
+insert into Esporte (descricao) values ('CAPOEIRA')
+insert into Esporte (descricao) values ('CORRIDA')
+insert into Esporte (descricao) values ('ESCALADA')
+insert into Esporte (descricao) values ('FUTEBOL')
+insert into Esporte (descricao) values ('GINASTICA OLIMPICA')
+insert into Esporte (descricao) values ('LUTAS EM GERAL')
+insert into Esporte (descricao) values ('MALABARES')
+insert into Esporte (descricao) values ('MERGULHO')
+insert into Esporte (descricao) values ('MUSCULAÇÃO')
+insert into Esporte (descricao) values ('NATAÇÃO')
+insert into Esporte (descricao) values ('PATINS')
+insert into Esporte (descricao) values ('SKATE')
+insert into Esporte (descricao) values ('SURF')
+insert into Esporte (descricao) values ('TÉCNICAS CIRCENSES')
+insert into Esporte (descricao) values ('TENIS')
+insert into Esporte (descricao) values ('VÔLEY')
+
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[ItensEsporte]    Script Date: 24/04/2014 12:03:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ItensEsporte](
+	[iditem] [int] IDENTITY(1,1) NOT NULL,
+	[idpessoa] [int] NULL,
+	[idesporte] [int] NULL
+) ON [PRIMARY]
+
+GO

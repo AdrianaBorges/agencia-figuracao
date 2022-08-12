@@ -1,0 +1,25 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Banco]    Script Date: 02/24/2014 22:49:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create TABLE [dbo].[Remuneracao](
+	[idremuneracao] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL,
+	[idextra] [int] NULL
+) ON [PRIMARY]
+
+insert into remuneracao (descricao, idextra) values ('ANUÉNIO',0)
+insert into remuneracao (descricao, idextra) values ('AUXÍLIO COMBUSTÍVEL',1)
+insert into remuneracao (descricao, idextra) values ('COMISSÃO',0)
+insert into remuneracao (descricao, idextra) values ('DIÁRIA',0)
+insert into remuneracao (descricao, idextra) values ('REMUNERAÇÃO FIXA',0)
+insert into remuneracao (descricao, idextra) values ('REMUNERAÇÃO MENSAL',0)
+insert into remuneracao (descricao, idextra) values ('COMISSÃO REF.GRAVAÇÕES',0)
+insert into remuneracao (descricao, idextra) values ('DIFERENÇA DE SALÁRIO',1)
+insert into remuneracao (descricao, idextra) values ('FÉRIAS',1)

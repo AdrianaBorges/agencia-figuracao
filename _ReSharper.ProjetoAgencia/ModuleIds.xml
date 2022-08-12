@@ -1,0 +1,9 @@
+<Modules>
+  <Module PersistentId="51D0A909-DFFF-4340-AC77-264BD1DF8D28" ModuleId="Agencia.Dominio.Repositorio" />
+  <Module PersistentId="8E3E6EE3-6126-4AB6-AA19-1B20D32761AB" ModuleId="Agencia.Infraestrutura.DAL" />
+  <Module PersistentId="81EC3B70-5F27-4237-8C36-AD1FF2E90566" ModuleId="Agencia.Dominio.Modelo" />
+  <Module PersistentId="B7418BEA-A7BE-4CC0-A6AB-BA7A1BDDFDE8" ModuleId="Agencia.WindowsUI" />
+  <Module PersistentId="6ECA4F0B-0679-47E9-88F4-F8B25A895BEA" ModuleId="Agencia.Infraestrutura.DAL.Test" />
+  <Module PersistentId="B571B315-BB85-4604-94A6-BD6215E0BA19" ModuleId="Agencia.Dominio.Repositorio.Test" />
+  <Module PersistentId="B4D55641-02FF-4179-8CFE-F4F12D086804" ModuleId="Agencia.Dominio.Servico" />
+</Modules>

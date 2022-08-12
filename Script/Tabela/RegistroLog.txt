@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[RegistroLOG](
+	[idlog] [int] IDENTITY(1,1) NOT NULL,
+	[identificador] [nvarchar](25) NULL,
+	[idformulario] [int] NULL,
+	[descricao] [nvarchar](max) NULL,
+	[observacao] [nvarchar](max) NULL,
+	[idcolaborador] [int] NULL
+) ON [PRIMARY]

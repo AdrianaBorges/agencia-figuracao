@@ -1,0 +1,2 @@
+ajustar impressão de recibo, campo numero da conta não comporta dado;
+verificar relatório de pagamento de inss;

@@ -1,0 +1,24 @@
+USE [dbagencia]
+GO
+
+/****** Object:  Table [dbo].[Contratante]    Script Date: 05/16/2014 08:35:25 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Contratante](
+	[idcontratante] [int] NOT NULL,
+	[nome] [nvarchar](200) NOT NULL,
+	[cnpj] [nvarchar](15) NOT NULL,
+	[inscmunicipal] [nvarchar](15) NULL,
+	[inscestadual] [nvarchar](15) NULL,
+	[endereco] [nvarchar](max) NULL,
+	[telefone] [nchar](10) NULL,
+	[municipio] [nvarchar](50) NULL,
+	[uf] [nchar](2) NULL,
+	[email] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO

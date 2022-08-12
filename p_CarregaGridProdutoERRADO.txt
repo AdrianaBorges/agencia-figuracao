@@ -1,0 +1,29 @@
+ALTER PROCEDURE p_CarregaGridProduto
+    @dado varchar(100) = ''
+AS
+BEGIN
+
+	Begin Try
+        select 
+			  REPLICATE('0', 5 - LEN(pr.idprograma)) + RTrim(pr.idprograma) as idprograma, --0
+			  rtrim(CONVERT(char, pr.data, 105)) AS data, --4
+			  pr.descricao, --1
+			  pr.observacao, --2
+			  pr.status,
+			  count(pe.idpedido) as totpedido
+
+	    from programa pr
+		left join pedido pe on pe.idprograma = pr.idprograma
+		where (pr.descricao like '%' + @dado + '%' or @dado = '') 
+			--and pr.status = 1
+		Group by pr.idprograma, pr.data, pr.descricao, pr.observacao, pr.status
+		order by pr.descricao
+
+	End Try
+
+	Begin Catch
+		Select ERROR_MESSAGE() as ErrorMessage
+
+	End Catch
+
+END

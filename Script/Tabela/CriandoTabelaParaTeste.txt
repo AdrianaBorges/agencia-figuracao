@@ -1,0 +1,40 @@
+-- Criando tabela para teste 
+CREATE TABLE Funcionarios 
+( 
+    idFuncionario INT IDENTITY (1,1) PRIMARY KEY 
+    , nome VARCHAR(100) NOT NULL 
+) 
+
+-- Verificando se a coluna Telefone VARCHAR(15) 
+-- existe na tabela Funcionarios 
+IF NOT EXISTS 
+( 
+  SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS C 
+  WHERE 
+    TABLE_NAME = 'Funcionarios' 
+    AND TABLE_SCHEMA = 'dbo' 
+    AND COLUMN_NAME = 'Telefone' 
+    AND DATA_TYPE = 'VARCHAR' 
+    AND CHARACTER_MAXIMUM_LENGTH = 15 
+) 
+BEGIN 
+
+   -- Adicionando a coluna Telefone VARCHAR(15) 
+   -- à tabela Funcionarios 
+   ALTER TABLE Funcionarios 
+      ADD Telefone VARCHAR(15) 
+
+   PRINT 'Coluna Telefone adicionada à tabela Funcionarios' 
+
+END 
+ELSE 
+   BEGIN 
+     PRINT 'Coluna Telefone já existe na tabela Funcionarios' 
+   END
+
+
+tabela existe?
+sim, verifica os campos
+campos existem? 
+não, cria os campos
+

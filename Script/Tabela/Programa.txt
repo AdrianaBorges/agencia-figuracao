@@ -1,0 +1,8 @@
+
+CREATE TABLE [dbo].[Programa](
+	[idprograma] [int] IDENTITY(1,1) NOT NULL,
+	[status] [int] NULL,
+	[data] [date] NULL,
+	[descricao] [nvarchar](50) NULL,
+	[observacao] [nvarchar](max) NULL
+) ON [PRIMARY]

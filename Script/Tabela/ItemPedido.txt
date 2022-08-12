@@ -1,0 +1,22 @@
+
+USE [dbAgencia]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ItensPedido](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idpedido] [int] NULL,
+        [idtipo] [int] NULL,
+	[qtd] [int] NULL,
+	[valor] [decimal](18,2)
+) ON [PRIMARY]
+
+GO
+
+

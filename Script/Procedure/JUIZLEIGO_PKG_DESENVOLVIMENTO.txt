@@ -1,0 +1,1161 @@
+create or replace package body JUIZLEIGO_PKG is
+
+  -- Inclui o histórico do Juiz Leigo
+  procedure HistoricoJuizLeigo_I(sLoginJuizLeigo historicojuizleigo.login%type,
+                                 sCodServ        historicojuizleigo.cod_serv%type,
+                                 dDtInicio       historicojuizleigo.dtinic%type,
+                                 dDtFim          historicojuizleigo.dtfim%type,
+                                 nMeta           historicojuizleigo.meta%type,
+                                 nHoras          historicojuizleigo.horafixada%type,
+                                 sTurno          historicojuizleigo.turno%type,
+                                 sNumMatr        historicojuizleigo.num_matr%type) is
+  begin
+    insert into HistoricoJuizLeigo
+      (login, cod_serv, dtinic, dtfim, meta, horafixada, turno, num_matr)
+    values
+      (sLoginJuizLeigo,
+       sCodServ,
+       dDtInicio,
+       dDtFim,
+       nMeta,
+       nHoras,
+       sTurno,
+       sNumMatr);
+  
+  exception
+    when dup_val_on_index then
+      null;
+  end;
+
+  --
+  procedure HistoricoJuizLeigo_U(sLoginJuizLeigo historicojuizleigo.login%type,
+                                 sCodServ        historicojuizleigo.cod_serv%type,
+                                 dDtInicio       historicojuizleigo.dtinic%type,
+                                 dDtFim          historicojuizleigo.dtfim%type,
+                                 nMeta           historicojuizleigo.meta%type,
+                                 nHoras          historicojuizleigo.horafixada%type,
+                                 sTurno          historicojuizleigo.turno%type,
+                                 sNumMatr        historicojuizleigo.num_matr%type,
+                                 dDtInicioOld    historicojuizleigo.dtinic%type) is
+  begin
+  
+    Update HistoricoJuizLeigo
+       set login      = sLoginJuizLeigo,
+           cod_serv   = sCodServ,
+           dtinic     = dDtInicio,
+           dtfim      = dDtFim,
+           meta       = nMeta,
+           horafixada = nHoras,
+           turno      = sTurno,
+           num_matr   = sNumMatr
+     where cod_serv = sCodServ
+       and num_matr = sNumMatr
+       and dtinic   = dDtInicioOld;
+  
+  exception
+    when dup_val_on_index then
+      null;
+  end;
+
+  -- Apaga todo o histórico
+  procedure HistoricoJuizLeigo_D(sLoginJuizLeigo historicojuizleigo.login%type,
+                                 sNumMatr        historicojuizleigo.num_matr%type) is
+  begin
+    delete from historicojuizleigo
+     where login = sLoginJuizLeigo
+       and num_matr = sNumMatr;
+  end;
+
+  --
+  procedure ServentiasJuizLeigo_I(sCodServ    funcionarioserventia.cod_serv%type,
+                                  sNumMatr    funcionarioserventia.num_matr%type,
+                                  sCodFuncao  funcionarioserventia.cod_funcao%type,
+                                  nSitOper    funcionarioserventia.sit_oper%type,
+                                  sTxtFimProc funcionarioserventia.txt_fim_proc%type) is
+  begin
+  
+    insert into FuncionarioServentia
+      (cod_serv, num_matr, cod_funcao, sit_oper, txt_fim_proc)
+    values
+      (sCodServ, sNumMatr, sCodFuncao, nSitOper, sTxtFimProc);
+  
+  exception
+    when dup_val_on_index then
+      null;
+  end;
+
+  --
+  procedure ServentiasJuizLeigo_U(sCodServ    funcionarioserventia.cod_serv%type,
+                                  sNumMatr    funcionarioserventia.num_matr%type,
+                                  sCodFuncao  funcionarioserventia.cod_funcao%type,
+                                  nSitOper    funcionarioserventia.sit_oper%type,
+                                  sTxtFimProc funcionarioserventia.txt_fim_proc%type) is
+  begin
+  
+    Update FuncionarioServentia
+       set cod_serv     = sCodServ,
+           num_matr     = sNumMatr,
+           cod_funcao   = sCodFuncao,
+           sit_oper     = nSitOPer,
+           txt_fim_proc = sTxtFimProc
+     where cod_serv = sCodServ
+       and num_matr = sNumMatr;
+  
+  exception
+    when dup_val_on_index then
+      null;
+  end;
+
+  --
+  procedure ServentiasJuizLeigo_D(sCodServ funcionarioserventia.cod_serv%type,
+                                  sNumMatr funcionarioserventia.num_matr%type) is
+  begin
+    delete from FuncionarioServentia
+     where cod_serv = sCodServ
+       and num_matr = sNumMatr;
+  end;
+
+  --
+  procedure AjusteJuizLeigo_I(sNumMatr  ajustevalorjuizleigo.num_matr%type,
+                              dDtInicio ajustevalorjuizleigo.dtinic%type,
+                              nValor    ajustevalorjuizleigo.valor%type) is
+  begin
+    insert into AjusteValorJuizLeigo
+      (num_matr, dtinic, num_seq, valor)
+    values
+      (sNumMatr,
+       dDtInicio,
+       (select --+FIRST_ROWS
+         nvl(max(num_seq), 0) + 1
+          from AjusteValorJuizLeigo
+         where num_matr = sNumMatr
+           and dtinic = dDtInicio),
+       nValor);
+  end;
+
+  --
+  procedure AjusteJuizLeigo_D(sNumMatr ajustevalorjuizleigo.num_matr%type) is
+  begin
+    delete from AjusteValorJuizLeigo where num_matr = sNumMatr;
+  end;
+
+  -- Relatório de audiências realizadas por juiz leigo
+  procedure RelAudRealzJuizLeigo_S(c        out cursor.ref,
+                                   sCodServ in Serventia.Cod_Serv%type,
+                                   dDtInic  in date,
+                                   dDtFim   in date,
+                                   sNumMatr in Funcionario.Num_Matr%type default null) is
+  begin
+    open c for
+      select a.cod_serv, f.nome, a.dt_aud, count(*) as total_aud
+        from Audiencia              a,
+             Processo               p,
+             TipoResultadoAudiencia tra,
+             Funcionario            f
+       where a.cod_serv = sCodServ
+         and a.dt_aud between dDtInic and dDtFim
+         and a.cod_proc = p.cod_proc
+         and nvl(p.sit_proc, 'A') <> 'E'
+         and a.cod_result_aud is not null
+         and a.cod_result_aud = tra.cod_result_aud
+         and tra.ind_realz = 'S'
+         and a.num_matr_resp = f.num_matr
+         and (sNumMatr is null or f.login = (select login 
+                                             from funcionario 
+                                             where num_matr = sNumMatr))
+         and f.cod_carg = 19 -- Juiz Leigo
+       group by a.cod_serv, f.nome, a.dt_aud
+       order by f.nome, a.dt_aud;
+  end;
+
+  -- Relatório de Produtividade dos juizes leigos
+  -- Considera todas as serventias da Comarca, caso não seja informada a serventia
+  -- Diferente da versão 3.8 que considera somente a serventia selecionada
+  procedure RelProdJuizLeigo_S(c            out cursor.ref,
+                               sCodComa     in Comarca.cod_coma%type default null,
+                               sCodServ     in Serventia.Cod_Serv%type default null,
+                               dDtInic      in date,
+                               dDtFim       in date,
+                               sNumMatr     in Funcionario.Num_Matr%type default null,
+                               sProjSentAtr in varchar2 default 'N') is
+  begin
+    open c for
+      select distinct f.nome,
+                      f.num_matr,
+                      nomeserventiacomarca (null, 'S', s.cod_serv) as Desc_Serv,
+                      s.cod_serv,
+                      c.desc_coma,
+                      (select max(h.horafixada)
+                         from historicojuizleigo h
+                        where h.dtinic =
+                              (select max(h2.dtinic)
+                                 from historicojuizleigo h2
+                                where h2.num_matr = h.num_matr
+                                  and h2.cod_serv = s.cod_serv
+                                  and h2.dtinic <= dDtFim
+                                  and h2.num_matr = f.num_matr)
+                          and h.cod_serv = s.cod_serv
+                          and h.num_matr = f.num_matr) as HoraFixada,
+                      
+                      (select max(h.turno)
+                         from historicojuizleigo h
+                        where h.dtinic =
+                              (select max(h2.dtinic)
+                                 from historicojuizleigo h2
+                                where h2.num_matr = h.num_matr
+                                  and h2.cod_serv = s.cod_serv
+                                  and h2.dtinic <= dDtFim
+                                  and h2.num_matr = f.num_matr)
+                          and h.cod_serv = s.cod_serv
+                          and h.num_matr = f.num_matr) as Turno,
+                      
+                      (select max(h.meta)
+                         from historicojuizleigo h
+                        where h.dtinic =
+                              (select max(h2.dtinic)
+                                 from historicojuizleigo h2
+                                where h2.num_matr = h.num_matr
+                                  and h2.cod_serv = s.cod_serv
+                                  and h2.dtinic <= dDtFim
+                                  and h2.num_matr = f.num_matr)
+                          and h.cod_serv = s.cod_serv
+                          and h.num_matr = f.num_matr) as Meta,
+                      (select count(*)
+                         from Audiencia              a1,
+                              Processo               p1,
+                              TipoResultadoAudiencia tra1,
+                              Funcionario            f1
+                        where a1.cod_serv = s.cod_serv
+                          and a1.dt_aud between dDtInic and dDtFim
+                          and a1.cod_proc = p1.cod_proc
+                          and a1.cod_tip_aud <> 1 -- conciliação
+                          and nvl(p1.sit_proc, 'A') <> 'E'
+                          and a1.cod_result_aud is not null
+                          and a1.cod_result_aud = tra1.cod_result_aud
+                          and tra1.ind_realz = 'S'
+                          and a1.num_matr_resp = f1.num_matr
+                          and a1.num_matr_resp = f.num_matr
+                          and f1.cod_carg = 19) as TReal, -- contabiliza o total de audiências realizadas
+                      (select count(*)
+                         from Audiencia              a2,
+                              Processo               p2,
+                              TipoResultadoAudiencia tra2,
+                              Funcionario            f2
+                        where a2.cod_serv = s.cod_serv
+                          and a2.dt_aud between dDtInic and dDtFim
+                          and a2.cod_proc = p2.cod_proc
+                          and a2.cod_tip_aud <> 1 -- conciliação
+                          and nvl(p2.sit_proc, 'A') <> 'E'
+                          and a2.cod_result_aud is not null
+                          and a2.cod_result_aud = tra2.cod_result_aud
+                          and tra2.ind_realz = 'N'
+                          and a2.num_matr_resp = f2.num_matr
+                          and a2.num_matr_resp = f.num_matr
+                          and f2.cod_carg = 19) as TNReal, -- contabiliza o total de audiências não realizadas
+                      (select count(*)
+                         from Audiencia              a3,
+                              Processo               p3,
+                              TipoResultadoAudiencia tra3,
+                              Funcionario            f3
+                        where a3.cod_serv = s.cod_serv
+                          and a3.dt_aud between dDtInic and dDtFim
+                          and a3.cod_proc = p3.cod_proc
+                          and a3.cod_tip_aud <> 1 -- conciliação
+                          and nvl(p3.sit_proc, 'A') <> 'E'
+                          and a3.cod_result_aud is not null
+                          and a3.cod_result_aud = tra3.cod_result_aud
+                          and tra3.ind_acordo = 'S'
+                          and a3.num_matr_resp = f3.num_matr
+                          and a3.num_matr_resp = f.num_matr
+                          and f3.cod_carg = 19) as TCAcor, -- contabiliza o total de audiências realizadas c/acordo
+                      (select --+ index (ap4 ANDAMENTOPROCESSO_NUMMATRJUIZ)
+                        count(*)
+                         from AndamentoProcesso ap4
+                        where ap4.cod_serv = s.cod_serv
+                          and ap4.num_matr_juiz = f.num_matr
+                          and ap4.cod_tip_and = 59
+                             --and ap4.cod_tip_ato = 2
+                          and ap4.dt_inic between dDtInic and dDtFim
+                          and ap4.dt_fim is not null
+                          and exists
+                        (select --+ index (ap5 ANDAMENTOPROCESSO_PROCORDEM_PK)
+                                1
+                                 from AndamentoProcesso ap5
+                                where ap5.cod_proc = ap4.cod_proc
+                                  and ap5.cod_tip_and in (1, 19, 49, 20)
+                                     --and ap5.cod_tip_ato = 2
+                                  and ap5.cod_ato = 87)) as TPSent, -- contabiliza o total de projetos de sentença
+                      (select --+ index (ap6 ANDAMENTOPROCESSO_NUMMATRJUIZ)
+                        count(*)
+                         from AndamentoProcesso ap6
+                        where ap6.cod_serv = s.cod_serv
+                          and ap6.num_matr_juiz = f.num_matr
+                          and ap6.cod_tip_and = 59
+                             --and ap6.cod_tip_ato = 2
+                          and ap6.dt_inic between dDtInic and dDtFim
+                          and ap6.dt_fim is null
+                          and not exists
+                        (select --+ index (ap7 ANDAMENTOPROCESSO_PROCORDEM_PK)
+                                1
+                                 from AndamentoProcesso ap7
+                                where ap7.cod_proc = ap6.cod_proc
+                                  and ap7.cod_tip_and in (1, 19, 49, 20)
+                                     --and ap7.cod_tip_ato = 2
+                                  and ap7.cod_ato = 87)) as TPPend -- contabiliza o total de projetos pendentes
+                     
+        from FuncionarioServentia fs,
+             Funcionario          f,
+             HistoricoJuizLeigo   hjl,
+             Processo             p,
+             Comarca              c,
+             Serventia            s,
+             AndamentoProcesso    ap
+       where c.cod_coma = s.cod_coma
+         and s.cod_coma = c.cod_coma
+         and p.cod_serv = s.cod_serv
+            --
+         and p.cod_proc = ap.cod_proc
+         and nvl(p.sit_proc, 'A') <> 'E'
+         and ap.num_matr_juiz = f.num_matr
+         and fs.cod_serv = ap.cod_serv
+            
+            --
+         and (c.cod_coma = sCodComa or (sCodComa is null))
+             --
+            
+            --
+         and (ap.cod_serv = sCodServ or
+             (sCodServ is null and ap.cod_serv = s.cod_serv))
+            --
+         and ap.cod_tip_and = 59
+         and ap.dt_inic between dDtInic and dDtFim
+         and (sNumMatr is null or f.login = (select login 
+                                             from funcionario 
+                                             where num_matr = sNumMatr))
+         
+         and fs.num_matr = f.num_matr
+         and fs.cod_serv = hjl.cod_serv
+         and fs.num_matr = hjl.num_matr
+         
+         -- O sistema deve permitir exibir a produtividade de um juiz inátivo no sistema
+         --and f.sit_oper = 0
+         and fs.sit_oper = 0
+         and f.cod_carg = 19
+         and fs.cod_funcao = 37
+            -- Juizes Leigos com projetos de sentença atrasados em mais de 30 dias
+         and (sProjSentAtr = 'N' or
+             (sProjSentAtr = 'S' and ((trunc(sysdate) - ap.dt_inic) <= 30)))
+            --        
+            -- juizes leigos que tenham audiências
+         and (exists (select 1
+                        from Audiencia a
+                       where a.cod_serv = s.cod_serv
+                         and a.dt_aud between dDtInic and dDtFim
+                         and a.cod_result_aud is not null
+                         and a.num_matr_resp = f.num_matr)
+             -- ou juizes leigos com projetos de sentença
+              or exists (select --+ index (ap ANDAMENTOPROCESSO_NUMMATRJUIZ)
+                          1
+                           from AndamentoProcesso ap
+                          where ap.cod_serv = s.cod_serv
+                            and ap.cod_tip_and = 59
+                            and ap.num_matr_juiz = f.num_matr
+                               --and ap.cod_tip_ato = 2
+                            and ap.dt_ato is not null))
+       order by c.Desc_coma,Desc_Serv, f.nome;
+    --order by f.nome, Desc_Serv;
+  end;
+
+  --Relatório de Acompanhamento dos juizes leigos
+  procedure RelAcompJuizLeigo_S(c        out cursor.ref,
+                                sCodServ in Serventia.Cod_Serv%type,
+                                dDtInic  in date,
+                                dDtFim   in date,
+                                sNumMatr in Funcionario.Num_Matr%type default null) is
+    /*
+     Flags: 1 - Projetos de Sentença
+            2 - Projetos Pendentes
+            3 - Audiencias Realizadas e Com Acordo
+    */
+  
+  begin
+    open c for
+      select distinct p.cod_serv,
+                      f.nome,
+                      ap.cod_ato as Codigo,
+                      aj.descr as Descr,
+                      count(*) as Total,
+                      (select count(*)
+                         from Audiencia              a1,
+                              Processo               p1,
+                              TipoResultadoAudiencia tra1,
+                              Funcionario            f1
+                        where a1.cod_serv = sCodServ
+                          and a1.dt_aud between dDtInic and dDtFim
+                          and a1.cod_proc = p1.cod_proc
+                          and a1.cod_tip_aud <> 1 -- conciliação
+                          and nvl(p1.sit_proc, 'A') <> 'E'
+                          and a1.cod_result_aud is not null
+                          and a1.cod_result_aud = tra1.cod_result_aud
+                          and tra1.ind_realz = 'S'
+                          and a1.num_matr_resp = sNumMatr
+                          and a1.num_matr_resp = f1.num_matr
+                          and f1.cod_carg = 19) as TReal, -- Total de Audiencias realizadas
+                      (select count(*)
+                         from Audiencia              a2,
+                              Processo               p2,
+                              TipoResultadoAudiencia tra2,
+                              Funcionario            f2
+                        where a2.cod_serv = sCodServ
+                          and a2.dt_aud between dDtInic and dDtFim
+                          and a2.cod_proc = p2.cod_proc
+                          and a2.cod_tip_aud <> 1 -- conciliação
+                          and nvl(p2.sit_proc, 'A') <> 'E'
+                          and a2.cod_result_aud is not null
+                          and a2.cod_result_aud = tra2.cod_result_aud
+                          and tra2.ind_acordo = 'S'
+                          and a2.num_matr_resp = sNumMatr
+                          and a2.num_matr_resp = f2.num_matr
+                          and f2.cod_carg = 19) as TAcor, -- Total de audiências realizadas com acordo
+                      (select --+ index (ap1 ANDAMENTOPROCESSO_NUMMATRJUIZ)
+                        count(*)
+                         from AndamentoProcesso ap1
+                        where ap1.cod_serv = sCodServ
+                          and ap1.num_matr_juiz = sNumMatr
+                          and ap1.cod_tip_and = 59
+                             --and ap1.cod_tip_ato = 2
+                          and ap1.dt_inic between dDtInic and dDtFim
+                          and ap1.dt_fim is not null
+                          and exists
+                        (select --+ index (ap2 ANDAMENTOPROCESSO_PROCORDEM_PK)
+                                1
+                                 from AndamentoProcesso ap2
+                                where ap2.cod_proc = ap1.cod_proc
+                                  and ap2.cod_tip_and in (1, 19, 49, 20)
+                                     --and ap2.cod_tip_ato = 2
+                                  and ap2.cod_ato = 87)) as Total_Proj, -- contabiliza o total de projetos de sentença
+                      (select --+ index (ap3 ANDAMENTOPROCESSO_NUMMATRJUIZ)
+                        count(*)
+                         from AndamentoProcesso ap3
+                        where ap3.cod_serv = sCodServ
+                          and ap3.num_matr_juiz = sNumMatr
+                          and ap3.cod_tip_and = 59
+                             --and ap3.cod_tip_ato = 2
+                          and ap3.dt_inic between dDtInic and dDtFim
+                          and ap3.dt_fim is null
+                          and not exists
+                        (select --+ index (ap4 ANDAMENTOPROCESSO_PROCORDEM_PK)
+                                1
+                                 from AndamentoProcesso ap4
+                                where ap4.cod_proc = ap3.cod_proc
+                                  and ap4.cod_tip_and in (1, 19, 49, 20)
+                                     --and ap4.cod_tip_ato = 2
+                                  and ap4.cod_ato = 87)) as Total_Pend -- contabiliza o total de projetos pendetes
+        from Processo p, AndamentoProcesso ap, Funcionario f, AtoJuiz aj
+       where p.cod_serv = sCodServ
+         and p.cod_proc = ap.cod_proc
+         and p.sit_proc <> 'E'
+         and ap.num_matr_juiz = sNumMatr
+         and ap.num_matr_juiz = f.num_matr
+            --and (sNumMatr is null or ap.num_matr_juiz = sNumMatr) -- Todos os Juizes Leigos
+         and f.cod_carg = 19
+         
+         -- O sistema deve permitir exibir a produtividade de um juiz inátivo no sistema
+         --and f.sit_oper = 0
+         and ap.cod_tip_and = 59
+         and (ap.cod_ato = aj.cod_ato or ap.cod_ato is null)
+         and aj.cod_tip_ato = 2
+         and ap.dt_inic between dDtInic and dDtFim
+         and ap.dt_fim is not null
+         and exists (select --+ index (ap1 ANDAMENTOPROCESSO_PROCORDEM_PK)
+               1
+                from AndamentoProcesso ap5
+               where ap5.cod_proc = ap.cod_proc
+                 and ap5.cod_tip_and in (1, 19, 49, 20)
+                 and ap5.cod_tip_ato = 2
+                 and ap5.cod_ato = 87)
+       group by p.cod_serv, f.nome, ap.cod_ato, aj.descr
+       order by p.cod_serv, f.nome, ap.cod_ato, aj.descr;
+  end;
+
+  -- Relatório de Projetos Pendentes por Juiz Leigo
+  procedure RelProjPendJuizLeigo_S(c              out cursor.ref,
+                                   sCodComa       in Comarca.cod_coma%type default null,
+                                   sCodServ       in Serventia.Cod_Serv%type default null,
+                                   dDtInic        in date,
+                                   dDtFim         in date,
+                                   sNumMatr       in Funcionario.Num_Matr%type default null,
+                                   sTipoOrdenacao in varchar2 default 'S') is
+  
+   -- MontaProcessoUnico incluido devido a Numeracao Unica de Processo CNJ
+   -- Carlos 27/10/2009
+   
+  begin
+    if sTipoOrdenacao = 'S' then
+      open c for
+        select distinct nomeserventiacomarca(p.cod_proc, 'S', null) Serventia,
+                        f.num_matr,
+                        f.nome,
+                        p.cod_proc,
+                        ap.dt_inic,
+                        trunc(sysdate) - trunc(ap.dt_inic) as Dias,
+                        MontaProcessoUnico(pu.cod_cnj, pu.cod_proc, pu.ind_exib_cod_proc, 'R') as cod_cnj
+          from Comarca              co,
+               Serventia            s,
+               Funcionario          f,
+               FuncionarioServentia fs,
+               Processo             p,
+               AndamentoProcesso    ap,
+               ProcessoUnico pu
+         where ap.cod_serv = s.cod_serv       
+           and (s.cod_serv = sCodServ or sCodServ is null)
+           and co.cod_coma = s.cod_coma
+           and (co.cod_coma = sCodComa or sCodComa is null)
+           and p.cod_proc = ap.cod_proc
+           and ap.cod_tip_and = 59
+           and f.num_matr = fs.num_matr
+           and fs.num_matr = ap.num_matr_juiz
+           and (ap.num_matr_juiz = sNumMatr or sNumMatr is null)
+           and f.sit_oper = 0
+           and fs.sit_oper = 0
+           and f.cod_carg = 19
+           and fs.cod_funcao = 37
+           and ap.dt_inic between dDtInic and dDtFim
+           and ap.dt_fim is null
+           and p.cod_proc = pu.cod_proc
+           and pu.cod_tip_proc = 1  
+           and not exists (select 1
+                  from AndamentoProcesso ap2
+                 where ap2.cod_proc = p.cod_proc
+                   and ap2.cod_tip_and in (1, 19, 49, 20)
+                   and ap2.cod_ato = 87)              
+         order by nomeserventiacomarca(p.cod_proc, 'S', null),
+                  f.nome,
+                  trunc(sysdate) - trunc(ap.dt_inic) desc;
+    else
+      open c for
+        select distinct f.num_matr,
+                        f.nome,
+                        nomeserventiacomarca(p.cod_proc, 'S', null) Serventia,
+                        p.cod_proc,
+                        ap.dt_inic,
+                        trunc(sysdate) - trunc(ap.dt_inic) as Dias,
+                        MontaProcessoUnico(pu.cod_cnj, pu.cod_proc, pu.ind_exib_cod_proc, 'R') as cod_cnj
+          from Comarca              co,
+               Serventia            s,
+               Funcionario          f,
+               FuncionarioServentia fs,
+               Processo             p,
+               AndamentoProcesso    ap,
+               ProcessoUnico pu
+         where ap.cod_serv = s.cod_serv       
+           and (s.cod_serv = sCodServ or sCodServ is null)
+           and co.cod_coma = s.cod_coma
+           and (co.cod_coma = sCodComa or sCodComa is null)
+           and p.cod_proc = ap.cod_proc
+           and ap.cod_tip_and = 59
+           and f.num_matr = fs.num_matr
+           and fs.num_matr = ap.num_matr_juiz
+           and (ap.num_matr_juiz = sNumMatr or sNumMatr is null)
+           
+           -- O sistema deve permitir exibir a produtividade de um juiz inátivo no sistema
+           --and f.sit_oper = 0
+           and fs.sit_oper = 0
+           and f.cod_carg = 19
+           and fs.cod_funcao = 37
+           and ap.dt_inic between dDtInic and dDtFim
+           and ap.dt_fim is null
+           and p.cod_proc = pu.cod_proc
+           and pu.cod_tip_proc = 1  
+           and not exists (select 1
+                  from AndamentoProcesso ap2
+                 where ap2.cod_proc = p.cod_proc
+                   and ap2.cod_tip_and in (1, 19, 49, 20)
+                   and ap2.cod_ato = 87)
+         order by f.nome,
+                  nomeserventiacomarca(p.cod_proc, 'S', null),
+                  trunc(sysdate) - trunc(ap.dt_inic) desc;
+    end if;
+  
+  end;
+
+procedure RelProdJuizLeigo_Folha_S(c            out cursor.ref,
+--                               sCodComa     in Comarca.cod_coma%type,
+                               sCodServ     in Serventia.Cod_Serv%type default null,
+                               dDtInic      in date,
+                               dDtFim       in date
+                               ) is
+  begin
+
+
+            open c for
+select distinct   f.nome,
+                  f.num_matr,
+
+                  --## SUBSTITUIDO nomeserventiacomarca(null, 'N', s.cod_serv) as Desc_Serv,
+                  s.desc_serv as Desc_Serv,
+                  s.cod_serv,
+                  s.cod_org,
+                  hDt.HoraFixada,
+                  hDt.Turno,
+                  hDt.Meta,
+                  hAud.TReal,
+                  hAud.TNReal,
+                  hAud.TCAcor,
+                  hAnd.TPSent,
+                  hAnd.TPPend
+
+                   --## SUBSTITUIDO PELA VIEW hDt
+                   --## SUBSTITUIDO PELA VIEW hAud
+                   --## SUBSTITUIDO PELA VIEW hAnd
+
+                from FuncionarioServentia fs,
+                     Funcionario          f,
+                     HistoricoJuizLeigo   hjl,
+                     Processo             p,
+                     Comarca              c,
+                     Serventia            s,
+                     AndamentoProcesso    ap,
+
+                     --## NOVA VIEW hDt
+                     (select max(ht.horafixada)       as HoraFixada,
+                             max(ht.turno)            as Turno,
+                             max(ht.meta)             as Meta,
+                             ht.num_matr,
+                             ht.cod_serv
+                       from historicojuizleigo ht, Funcionario ft
+                       where ht.num_matr = ft.num_matr
+                       and   ft.cod_carg = 19 -- Juiz Leigo
+                       and   ht.cod_serv = sCodServ
+                       and   ht.dtinic =
+                            (select max(h2.dtinic)
+                               from historicojuizleigo h2
+                              where h2.num_matr = ht.num_matr
+                                and h2.cod_serv = ht.cod_serv
+                                and h2.dtinic <= dDtFim)
+                      group by ht.num_matr, ht.cod_serv
+                      ) hDt,
+
+                      --## NOVA VIEW hAud
+                      (select  sum(decode(tra.ind_realz, 'S', 1, 0))  TReal,
+                               sum(decode(tra.ind_realz, 'N', 1, 0))  TNReal,
+                               sum(decode(tra.ind_acordo, 'S', 1, 0)) TCAcor,
+                               a.num_matr_resp num_matr,
+                               a.cod_serv
+                                 from Audiencia              a,
+                                      Processo               p,
+                                      TipoResultadoAudiencia tra,
+                                      Funcionario            f,
+                                      FuncionarioServentia   fs
+                                where a.cod_serv = sCodServ
+                                  and a.cod_proc = p.cod_proc
+                                  and p.sit_proc <> 'E'
+                                  and a.num_matr_resp = fs.num_matr
+                                  and a.cod_serv      = fs.cod_serv
+                                  and a.cod_tip_aud <> 1 -- conciliação
+                                  and a.dt_aud between dDtInic and dDtFim
+                                  and a.cod_result_aud is not null
+                                  and a.cod_result_aud = tra.cod_result_aud
+                                  and a.num_matr_resp = f.num_matr
+                                  and f.cod_carg = 19 -- Juiz Leigo
+                                  and f.sit_oper = 0
+                        group by  a.num_matr_resp, a.cod_serv) hAud,
+
+                         --## NOVA VIEW hAnd
+                        (select   ap4.num_matr_juiz  num_matr,
+                                  ap4.cod_serv,
+                        sum(case when ap4.dt_fim IS NOT NULL then
+                              (select 1
+                               from AndamentoProcesso ap5
+                               where ap5.cod_proc = ap4.cod_proc
+                               and   ap5.cod_serv = ap4.cod_serv
+                               and   ap5.num_matr_juiz = ap4.num_matr_juiz
+                               and   ap5.cod_tip_and in (1, 19, 49, 20)
+                               and   ap5.cod_ato = 87
+
+                               and   rownum = 1)
+                        else 0 end)                    TPSent,
+
+                        sum(case when ap4.dt_fim IS NULL then
+                              decode ((
+                                     select 1
+                                     from AndamentoProcesso ap5
+                                     where ap5.cod_proc = ap4.cod_proc
+                                     and   ap5.cod_serv = ap4.cod_serv
+                                     and   ap5.num_matr_juiz = ap4.num_matr_juiz
+                                     and   ap5.cod_tip_and in (1, 19, 49, 20)
+                                     and   ap5.cod_ato = 87
+                                     and   rownum = 1
+                                     ), 1, 0, 1)
+                        else 0 end) TPPend
+
+                       from AndamentoProcesso ap4, Funcionario f
+                       where ap4.cod_serv = sCodServ
+                       and   ap4.num_matr_juiz = f.num_matr
+                       and   f.cod_carg = 19 -- Juiz Leigo
+                       and   ap4.cod_tip_and = 59
+                       and   ap4.dt_inic between dDtInic and dDtFim
+                      group by ap4.num_matr_juiz, ap4.cod_serv)  hAnd
+
+               where fs.num_matr = f.num_matr
+                 and s.cod_coma = c.cod_coma
+
+                 and fs.cod_serv = hjl.cod_serv
+                 and fs.num_matr = hjl.num_matr
+                 
+                 -- O sistema deve permitir exibir a produtividade de um juiz inátivo no sistema
+                 --and f.sit_oper = 0
+                 and fs.sit_oper = 0
+                 and f.cod_carg = 19
+                 and fs.cod_funcao = 37
+
+                 and p.cod_proc = ap.cod_proc
+                 and p.sit_proc <> 'E'
+
+                 and ap.cod_serv = s.cod_serv
+                 and ap.num_matr_juiz = f.num_matr
+                 and ap.cod_serv = sCodServ
+                 and ap.dt_inic between dDtInic and dDtFim
+                 and ap.cod_tip_and = 59 --Remessa ao Juiz Leigo
+
+                 --## NOVO JOIN com a view hDt
+                 and hjl.num_matr = hDt.num_matr
+                 and hjl.cod_serv = hDt.cod_serv
+
+                 --## NOVO JOIN com a view hAud
+                 and hjl.num_matr = hAud.num_matr(+)
+                 and hjl.cod_serv = hAud.cod_serv(+)
+
+                 --## NOVO JOIN com a view hAnd
+                 and hjl.num_matr = hAnd.num_matr(+)
+                 and hjl.cod_serv = hAnd.cod_serv(+);
+
+
+  end;
+
+--Relatório de Acompanhamento dos juizes leigos - Sintetico
+  procedure RelAcompJuizLeigoSintetico_S(c        out cursor.ref,
+                                         sCodComa in Comarca.Cod_Coma%type default null,
+                                         sCodServ in Serventia.Cod_Serv%type,
+                                         dDtInic  in date,
+                                         dDtFim   in date,
+                                         sNumMatr in Funcionario.Num_Matr%type default null) is
+    
+  begin
+    open c for
+      select 
+         a.cod_serv || ' - ' || UPPER(s.desc_serv) as cod_serv,
+         UPPER(f.nome) as nome,
+         a.cod_result_aud,
+         a.cod_result_aud || ' - ' || UPPER(t.descr) as descr,
+         count(ap.cod_proc) as total
+
+      from audiencia a
+      inner join serventia s
+            on s.cod_serv = a.cod_serv
+       inner join processo p
+          on p.cod_proc = a.cod_proc
+         and p.sit_proc <> 'E'
+       inner join andamentoprocesso ap
+          on ap.cod_proc = a.cod_proc
+         and ap.cod_tip_ato = 2
+         and ap.cod_tip_and = 1
+         and ap.cod_ato in (16, 87)
+       inner join funcionario f
+          on f.num_matr = a.num_matr_resp
+         and f.cod_carg = 19
+       inner join tiporesultadoaudiencia t
+          on t.cod_result_aud = a.cod_result_aud
+         and t.ind_realz = 'S'
+
+       where s.cod_coma = sCodComa
+           and ap.dt_fim between dDtInic and dDtFim
+                 
+           and (a.cod_serv = sCodServ or sCodServ is null)
+           and (a.num_matr_resp = sNumMatr or sNumMatr is null)
+           
+           and a.cod_result_aud in (1, 8, 54)
+           and ((ap.cod_ato = 16 and a.cod_result_aud = 1) or
+               (ap.cod_ato = 87 and a.cod_result_aud = 54) or
+               (ap.cod_ato in (16, 87) and a.cod_result_aud = 8))
+
+       group by a.cod_serv, f.nome, a.cod_result_aud, t.descr, s.desc_serv
+       order by f.nome;
+
+ end;
+
+  --Relatório de Acompanhamento dos juizes leigos - Analitico
+  procedure RelAcompJuizLeigoAnalitico_S(c        out cursor.ref,
+                                         sCodComa in Comarca.Cod_Coma%type default null,
+                                         sCodServ in Serventia.Cod_Serv%type,
+                                         dDtInic  in date,
+                                         dDtFim   in date,
+                                         sNumMatr in Funcionario.Num_Matr%type default null) is
+    
+  begin
+    open c for
+            
+      select 
+             a.cod_serv || ' - ' || UPPER(s.desc_serv) as cod_serv,
+             UPPER(f.nome) as nome,
+             a.cod_result_aud,
+             a.cod_result_aud || ' - ' || UPPER(t.descr) as descr,
+             pu.cod_cnj,
+             a.dt_aud,
+             ap.dt_fim as dt_homolog
+
+        from audiencia a
+        inner join serventia s
+            on s.cod_serv = a.cod_serv
+       inner join processo p
+          on p.cod_proc = a.cod_proc
+         and p.sit_proc <> 'E'
+       inner join andamentoprocesso ap
+          on ap.cod_proc = a.cod_proc
+         and ap.cod_tip_ato = 2
+         and ap.cod_tip_and = 1
+         and ap.cod_ato in (16, 87)
+       inner join funcionario f
+          on f.num_matr = a.num_matr_resp
+         and f.cod_carg = 19
+       inner join tiporesultadoaudiencia t
+          on t.cod_result_aud = a.cod_result_aud
+         and t.ind_realz = 'S'
+       inner join processounico pu
+          on pu.cod_proc = a.cod_proc
+  
+         where s.cod_coma = sCodComa
+           and ap.dt_fim between dDtInic and dDtFim
+                 
+           and (a.cod_serv = sCodServ or sCodServ is null)
+           and (a.num_matr_resp = sNumMatr or sNumMatr is null)
+           
+           and a.cod_result_aud in (1, 8, 54)
+           and ((ap.cod_ato = 16 and a.cod_result_aud = 1) or
+               (ap.cod_ato = 87 and a.cod_result_aud = 54) or
+               (ap.cod_ato in (16, 87) and a.cod_result_aud = 8))
+
+        order by f.nome, a.dt_aud, ap.dt_fim;
+
+ end;
+ 
+ procedure RelProdJuizLeigoSint_S(c out cursor.ref,
+                                   p_CodServ     in serventia.cod_serv%type,
+                                   p_DataInicial in varchar2,
+                                   p_DataFinal   in varchar2,
+                                   p_NumMatrJuizLeigo in funcionario.num_matr%type default null) as
+
+  C_COD_CARGO_JUIZ_LEIGO  constant number := 19; -- código cargo = Juiz Leigo
+  C_COD_TIP_AND_CONCLUSAO constant number := 1; -- código andamento = Conclusão
+  C_COD_TIP_ATO_SENTENCA  constant number := 2; -- Código tipo ato juiz = Sentença
+
+begin
+
+  open c for
+    select fs.cod_serv,
+           nomeserventiacomarca (null, 'S', fs.cod_serv) as serventia,
+           fs.num_matr,
+           fs.nome,
+           count(decode(cod_result_aud, 1, 1, null)) total_acordo,
+           count(decode(cod_result_aud, 8, 1, null)) total_revelia,
+           count(decode(cod_result_aud, 54, 1, null)) total_proj_sent,
+           count(decode(cod_result_aud, 54, 1, 8, 1, 1, 1, null)) total
+      from (select aud.cod_serv,
+                   p.cod_proc,
+                   ap.cod_tip_and,
+                   ap.cod_ato,
+                   ap.dt_fim,
+                   aud.cod_result_aud,
+                   aud.dt_aud,
+                   aud.num_matr_resp,
+                   aud.cod_agenda,
+                   aud.cod_tip_aud,
+                   func.nome,
+                   func.num_matr
+              from processo p
+             inner join andamentoprocesso ap
+                on ap.cod_proc = p.cod_proc
+             inner join audiencia aud
+                on aud.cod_proc = p.cod_proc
+             inner join funcionario func
+                on func.num_matr = aud.num_matr_resp
+             where p.cod_proc <> 'E'
+               and ap.cod_tip_and = C_COD_TIP_AND_CONCLUSAO
+               and ap.cod_tip_ato = C_COD_TIP_ATO_SENTENCA
+               and ap.cod_ato in (16, 87)
+               and func.cod_carg = 19
+               and ap.dt_fim between p_DataInicial and p_DataFinal
+
+               and ((ap.cod_ato = 16 and cod_result_aud = 1) or
+                   (ap.cod_ato = 87 and cod_result_aud = 54) or
+                   (ap.cod_ato in (16, 87) and cod_result_aud = 8))
+
+               and aud.dt_aud = (select max(dt_aud)
+                                   from audiencia a1
+                                   join funcionario f
+                                     on f.num_matr = a1.num_matr_resp
+                                  where a1.cod_proc = ap.cod_proc
+                                    and f.cod_carg = C_COD_CARGO_JUIZ_LEIGO
+                                    and a1.dt_aud <= ap.dt_fim)) t
+     right join (select fs.cod_serv, f.num_matr, f.nome
+                   from funcionario f
+                   join funcionarioserventia fs
+                     on fs.num_matr = f.num_matr
+                  where cod_carg = C_COD_CARGO_JUIZ_LEIGO
+                    and fs.sit_oper = 0) fs
+        on t.cod_serv = fs.cod_serv
+       and t.num_matr = fs.num_matr
+      left join comarcaserventia cs
+        on fs.cod_serv = cs.cod_serv
+     where fs.cod_serv = p_CodServ
+       and (p_NumMatrJuizLeigo is null or fs.num_matr = p_NumMatrJuizLeigo)
+     group by fs.cod_serv, cs.desc_serv, cs.desc_coma, fs.num_matr, fs.nome;
+
+end;
+
+
+  -- Relatório de audiências realizadas por juiz leigo - Sintetico
+  procedure RelAudRealzJuizLeigoSint_S(c        out cursor.ref,
+                                       sCodComa in Comarca.Cod_Coma%type default null,
+                                       sCodServ in Serventia.Cod_Serv%type default null,
+                                       dDtInic  in date,
+                                       dDtFim   in date,
+                                       sNumMatr in Funcionario.Num_Matr%type default null) is
+      begin
+        open c for
+       
+         select 
+               a.cod_serv || ' - ' || UPPER(s.desc_serv) as cod_serv,
+               f.nome,
+               a.dt_aud,
+               count(a.dt_aud) as tot_aud,
+               count(ta.cod_result_aud) as acordo,
+               count(tr.cod_result_aud) as revelia,
+               count(ts.cod_result_aud) as projsenteca,
+               count(tout.cod_result_aud) as outro
+
+          from audiencia a
+         inner join serventia s
+            on s.cod_serv = a.cod_serv
+         inner join processo p
+            on p.cod_proc = a.cod_proc
+           and nvl(p.sit_proc, 'A') <> 'E'
+         inner join tiporesultadoaudiencia t
+            on t.cod_result_aud = a.cod_result_aud
+           and t.ind_realz = 'S'
+         inner join funcionarioserventia fs
+            on fs.num_matr = a.num_matr_resp
+           and fs.cod_serv = a.cod_serv
+         inner join funcionario f
+            on f.num_matr = fs.num_matr
+           and f.cod_carg = 19
+
+          left outer join tiporesultadoaudiencia ta
+            on ta.cod_result_aud = a.cod_result_aud
+           and ta.cod_result_aud = 1 -- Realizada - com acordo
+          left join tiporesultadoaudiencia tr
+            on tr.cod_result_aud = a.cod_result_aud
+           and tr.cod_result_aud = 8 -- Realizada - revelia
+          left join tiporesultadoaudiencia ts
+            on ts.cod_result_aud = a.cod_result_aud
+           and ts.cod_result_aud = 54 -- Realizada - Projeto de Sentença
+          left join tiporesultadoaudiencia tout
+            on tout.cod_result_aud = a.cod_result_aud
+           and tout.cod_result_aud not in (1, 54, 8) -- Outros
+
+         where s.cod_coma = sCodComa
+           and a.dt_aud between dDtInic and dDtFim
+           and a.cod_result_aud is not null
+           
+           and (a.cod_serv = sCodServ or sCodServ is null)
+           and (fs.num_matr = sNumMatr or sNumMatr is null)
+           
+       group by a.cod_serv, f.nome, a.dt_aud, s.desc_serv
+       order by f.nome, a.dt_aud;
+
+  end;
+
+  
+  -- Relatório de audiências realizadas por juiz leigo - Analitico
+  procedure RelAudRealzJuizLeigoAnalit_S(c        out cursor.ref,
+                                         sCodComa in Comarca.Cod_Coma%type default null,
+                                         sCodServ in Serventia.Cod_Serv%type,
+                                         dDtInic  in date,
+                                         dDtFim   in date,
+                                         sNumMatr in Funcionario.Num_Matr%type default null) is
+  begin
+    open c for
+      
+      select 
+         a.cod_serv || ' - ' || UPPER(s.desc_serv) as cod_serv, 
+         UPPER(f.nome) as nome, 
+         a.dt_aud, 
+         pu.cod_cnj, 
+         t.cod_result_aud, 
+         t.cod_result_aud || ' - ' || UPPER(t.descr) as descr
+         
+        from audiencia a
+        inner join serventia s
+            on s.cod_serv = a.cod_serv
+       inner join processo p
+          on p.cod_proc = a.cod_proc
+         and nvl(p.sit_proc, 'A') <> 'E'
+       inner join tiporesultadoaudiencia t
+          on t.cod_result_aud = a.cod_result_aud
+         and t.ind_realz = 'S'
+       inner join processounico pu
+          on pu.cod_proc = a.cod_proc
+       inner join funcionarioserventia fs
+        on fs.num_matr = a.num_matr_resp
+       and fs.cod_serv = a.cod_serv
+       inner join funcionario f
+        on f.num_matr = fs.num_matr
+       and f.cod_carg = 19
+   
+       where s.cod_coma = sCodComa
+           and a.dt_aud between dDtInic and dDtFim
+           and a.cod_result_aud is not null
+           
+           and (a.cod_serv = sCodServ or sCodServ is null)
+           and (fs.num_matr = sNumMatr or sNumMatr is null)
+                 
+       group by a.cod_serv,
+                f.nome,
+                a.dt_aud,
+                pu.cod_cnj,
+                t.cod_result_aud,
+                t.descr,
+                s.desc_serv
+       order by f.nome, a.dt_aud;
+
+  end;
+  
+end JUIZLEIGO_PKG;
+
+
+-------------------------------------------------
+
+create or replace package JUIZLEIGO_PKG is
+
+  -- Author  : JOSEBERBET
+  -- Created : 05/06/2007 11:29:21
+  -- Purpose : Tratar as informações relacionadas com os Juizes Leigos
+
+  -- Public type declarations
+  -- type <TypeName> is <Datatype>;
+
+  -- Public constant declarations
+  -- <ConstantName> constant <Datatype> := <Value>;
+
+  -- Public variable declarations
+  -- <VariableName> <Datatype>;
+
+  -- Public function and procedure declarations
+  -- function <FunctionName>(<Parameter> <Datatype>) return <Datatype>;
+
+  procedure HistoricoJuizLeigo_I(sLoginJuizLeigo historicojuizleigo.login%type,
+                                 sCodServ        historicojuizleigo.cod_serv%type,
+                                 dDtInicio       historicojuizleigo.dtinic%type,
+                                 dDtFim          historicojuizleigo.dtfim%type,
+                                 nMeta           historicojuizleigo.meta%type,
+                                 nHoras          historicojuizleigo.horafixada%type,
+                                 sTurno          historicojuizleigo.turno%type,
+                                 sNumMatr        historicojuizleigo.num_matr%type);
+
+  procedure HistoricoJuizLeigo_U(sLoginJuizLeigo historicojuizleigo.login%type,
+                                 sCodServ        historicojuizleigo.cod_serv%type,
+                                 dDtInicio       historicojuizleigo.dtinic%type,
+                                 dDtFim          historicojuizleigo.dtfim%type,
+                                 nMeta           historicojuizleigo.meta%type,
+                                 nHoras          historicojuizleigo.horafixada%type,
+                                 sTurno          historicojuizleigo.turno%type,
+                                 sNumMatr        historicojuizleigo.num_matr%type,
+                                 dDtInicioOld    historicojuizleigo.dtinic%type);
+
+  procedure HistoricoJuizLeigo_D(sLoginJuizLeigo historicojuizleigo.login%type,
+                                 sNumMatr        historicojuizleigo.num_matr%type);
+
+  procedure ServentiasJuizLeigo_I(sCodServ    funcionarioserventia.cod_serv%type,
+                                  sNumMatr    funcionarioserventia.num_matr%type,
+                                  sCodFuncao  funcionarioserventia.cod_funcao%type,
+                                  nSitOper    funcionarioserventia.sit_oper%type,
+                                  sTxtFimProc funcionarioserventia.txt_fim_proc%type);
+
+  procedure ServentiasJuizLeigo_U(sCodServ    funcionarioserventia.cod_serv%type,
+                                  sNumMatr    funcionarioserventia.num_matr%type,
+                                  sCodFuncao  funcionarioserventia.cod_funcao%type,
+                                  nSitOper    funcionarioserventia.sit_oper%type,
+                                  sTxtFimProc funcionarioserventia.txt_fim_proc%type);
+
+  procedure ServentiasJuizLeigo_D(sCodServ funcionarioserventia.cod_serv%type,
+                                  sNumMatr funcionarioserventia.num_matr%type);
+
+  procedure AjusteJuizLeigo_I(sNumMatr  ajustevalorjuizleigo.num_matr%type,
+                              dDtInicio ajustevalorjuizleigo.dtinic%type,
+                              nValor    ajustevalorjuizleigo.valor%type);
+
+  procedure AjusteJuizLeigo_D(sNumMatr ajustevalorjuizleigo.num_matr%type);
+
+  procedure RelAudRealzJuizLeigo_S(c        out cursor.ref,
+                                   sCodServ in Serventia.Cod_Serv%type,
+                                   dDtInic  in date,
+                                   dDtFim   in date,
+                                   sNumMatr in Funcionario.Num_Matr%type default null);
+
+  procedure RelProdJuizLeigo_S(c            out cursor.ref,
+                               sCodComa     in Comarca.Cod_Coma%type default null,
+                               sCodServ     in Serventia.Cod_Serv%type default null,
+                               dDtInic      in date,
+                               dDtFim       in date,
+                               sNumMatr     in Funcionario.Num_Matr%type default null,
+                               sProjSentAtr in varchar2 default 'N');
+
+  procedure RelAcompJuizLeigo_S(c        out cursor.ref,
+                                sCodServ in Serventia.Cod_Serv%type,
+                                dDtInic  in date,
+                                dDtFim   in date,
+                                sNumMatr in Funcionario.Num_Matr%type default null);
+
+  procedure RelProjPendJuizLeigo_S(c              out cursor.ref,
+                                   sCodComa       in Comarca.cod_coma%type default null,
+                                   sCodServ       in Serventia.Cod_Serv%type default null,
+                                   dDtInic        in date,
+                                   dDtFim         in date,
+                                   sNumMatr       in Funcionario.Num_Matr%type default null,
+                                   sTipoOrdenacao in varchar2 default 'S');
+
+ procedure RelProdJuizLeigo_Folha_S(c            out cursor.ref,
+--                               sCodComa     in Comarca.cod_coma%type,
+                               sCodServ     in Serventia.Cod_Serv%type default null,
+                               dDtInic      in date,
+                               dDtFim       in date
+                               ); 
+ 
+ procedure RelAcompJuizLeigoSintetico_S(c        out cursor.ref,
+                                         sCodComa in Comarca.Cod_Coma%type default null,
+                                         sCodServ in Serventia.Cod_Serv%type,
+                                         dDtInic  in date,
+                                         dDtFim   in date,
+                                         sNumMatr in Funcionario.Num_Matr%type default null);                              
+                               
+ procedure RelProdJuizLeigoSint_S(c out cursor.ref,
+                                   p_CodServ     in serventia.cod_serv%type,
+                                   p_DataInicial in varchar2,
+                                   p_DataFinal   in varchar2,
+                                   p_NumMatrJuizLeigo in funcionario.num_matr%type default null);
+                                   
+ procedure RelAudRealzJuizLeigoSint_S(c        out cursor.ref,
+                                       sCodComa in Comarca.Cod_Coma%type default null,
+                                       sCodServ in Serventia.Cod_Serv%type default null,
+                                       dDtInic  in date,
+                                       dDtFim   in date,
+                                       sNumMatr in Funcionario.Num_Matr%type default null);
+ 
+ procedure RelAudRealzJuizLeigoAnalit_S(c        out cursor.ref,
+                                         sCodComa in Comarca.Cod_Coma%type default null,
+                                         sCodServ in Serventia.Cod_Serv%type,
+                                         dDtInic  in date,
+                                         dDtFim   in date,
+                                         sNumMatr in Funcionario.Num_Matr%type default null);
+                                                                                                                               
+end JUIZLEIGO_PKG;

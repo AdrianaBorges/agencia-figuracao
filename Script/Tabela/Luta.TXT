@@ -1,0 +1,37 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Luta]    Script Date: 24/04/2014 12:03:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Luta](
+	[idluta] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[ItensLuta](
+	[iditem] [int] IDENTITY(1,1) NOT NULL,
+	[idpessoa] int NULL,
+	[iddluta] int NULL
+) ON [PRIMARY]
+
+GO
+
+insert into luta (descricao) values ('AIKIDO')
+insert into luta (descricao) values ('BODY COMBAT')
+insert into luta (descricao) values ('BOXE')
+insert into luta (descricao) values ('CAPOEIRA')
+insert into luta (descricao) values ('JIU-JITSU')
+insert into luta (descricao) values ('JUDÔ')
+insert into luta (descricao) values ('KARATÊ')
+insert into luta (descricao) values ('KENPÔ HAVAIANO')
+insert into luta (descricao) values ('KICK BOXING')
+insert into luta (descricao) values ('KRAV MAGÁ')
+insert into luta (descricao) values ('KUNG FÚ')
+insert into luta (descricao) values ('MUAY THAI')
+insert into luta (descricao) values ('TAE KWON DO')
+

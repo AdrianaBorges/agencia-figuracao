@@ -1,0 +1,155 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\Agencia.Relatorios.csproj": {}
+  },
+  "projects": {
+    "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj",
+        "projectName": "Agencia.Dominio.Modelo",
+        "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj"
+      },
+      "frameworks": {
+        "net40": {}
+      }
+    },
+    "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj",
+        "projectName": "Agencia.Dominio.Repositorio",
+        "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj",
+        "frameworks": {
+          "net40": {
+            "projectReferences": {
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj"
+              },
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net40": {}
+      }
+    },
+    "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Servico\\Agencia.Dominio.Servico.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Servico\\Agencia.Dominio.Servico.csproj",
+        "projectName": "Agencia.Dominio.Servico",
+        "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Servico\\Agencia.Dominio.Servico.csproj",
+        "frameworks": {
+          "net40": {
+            "projectReferences": {
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj"
+              },
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj"
+              },
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net40": {}
+      }
+    },
+    "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj",
+        "projectName": "Agencia.Infraestrutura.DAL",
+        "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj",
+        "frameworks": {
+          "net40": {
+            "projectReferences": {
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net40": {}
+      }
+    },
+    "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\Agencia.Relatorios.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\Agencia.Relatorios.csproj",
+        "projectName": "Agencia.Relatorios",
+        "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\Agencia.Relatorios.csproj",
+        "packagesPath": "C:\\Users\\adrianaborges\\.nuget\\packages\\",
+        "outputPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\adrianaborges\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net40-client"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://azuredevops.tjrj.jus.br/tjerj/_packaging/ComponentesTJERJ/nuget/v3/index.json": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net40-client": {
+            "projectReferences": {
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj"
+              },
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj"
+              },
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Servico\\Agencia.Dominio.Servico.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Servico\\Agencia.Dominio.Servico.csproj"
+              },
+              "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj": {
+                "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net40-client": {
+          "dependencies": {
+            "Microsoft.ReportViewer.Common": {
+              "target": "Package",
+              "version": "[10.0.40219.1, )"
+            },
+            "Microsoft.ReportViewer.WebForms": {
+              "target": "Package",
+              "version": "[10.0.40219.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

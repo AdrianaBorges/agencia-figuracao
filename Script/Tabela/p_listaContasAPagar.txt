@@ -1,0 +1,39 @@
+USE [dbAgencia]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+alter PROCEDURE [dbo].[p_ListaPedidos]
+	@numpedido varchar(70) = '',
+	@idproduto int,
+	@idfirma int
+
+AS
+BEGIN
+
+	  select 
+		 REPLICATE('0', 5 - LEN(pd.idpedido)) + RTrim(pd.idpedido) as idpedido,
+         REPLICATE('0', 7 - LEN(pd.numpedido)) + RTrim(pd.numpedido) as numpedido,
+         rtrim(CONVERT(char, pd.dtpedido, 105)) AS dtpedido,
+         pg.descricao,
+         pd.extra,
+         coalesce(sum(ip.qtd),0) as qtdfigurante,
+         coalesce(sum(ip.valor),0) as vlrpedido
+  
+    from Pedido pd(nolock)
+   inner join programa pg
+      on pg.idprograma = pd.idprograma
+   left join ItensPedido ip
+      on ip.idpedido = pd.idpedido
+
+   where (pd.numpedido like '%' + @numpedido + '%' or @numpedido is null)
+	 and (pd.idprograma = @idproduto or @idproduto = 0)
+		and pd.idfirma = @idfirma
+
+   group by pd.idpedido, pd.dtpedido, pd.numpedido, pg.descricao, pd.extra
+   order by pd.dtpedido desc, pd.idpedido desc
+
+	
+END

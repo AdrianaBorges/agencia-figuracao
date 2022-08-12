@@ -1,0 +1,24 @@
+USE [dbAgencia]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create TABLE [dbo].[NotaFiscal](
+	[idnota] [int] IDENTITY(1,1) NOT NULL,
+	[idfirma] [int] null,
+    [numnota] [int] null,
+    [dtemissao] [datetime] null,
+	[codverificacao] [nvarchar](40) NULL,
+	[descricao] [nvarchar](100) NULL,
+    [idcontratante] [int] null,
+    [idlancamento] [int] null, 
+	[observacao] [nvarchar](200) NULL,
+	[dtliberacao] [datetime] null,
+	[status] [int] null,
+	[dtpagamento] [datetime] null
+
+) ON [PRIMARY]

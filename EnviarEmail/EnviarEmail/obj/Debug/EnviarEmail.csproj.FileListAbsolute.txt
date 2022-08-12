@@ -1,0 +1,8 @@
+C:\Users\adriana.borges\Downloads\EnviarEmail\EnviarEmail\EnviarEmail\bin\Debug\EnviarEmail.exe
+C:\Users\adriana.borges\Downloads\EnviarEmail\EnviarEmail\EnviarEmail\bin\Debug\EnviarEmail.pdb
+C:\Users\adriana.borges\Downloads\EnviarEmail\EnviarEmail\EnviarEmail\obj\Debug\EnviarEmail.csprojResolveAssemblyReference.cache
+C:\Users\adriana.borges\Downloads\EnviarEmail\EnviarEmail\EnviarEmail\obj\Debug\EnviarEmail.Principal.resources
+C:\Users\adriana.borges\Downloads\EnviarEmail\EnviarEmail\EnviarEmail\obj\Debug\EnviarEmail.Properties.Resources.resources
+C:\Users\adriana.borges\Downloads\EnviarEmail\EnviarEmail\EnviarEmail\obj\Debug\EnviarEmail.csproj.GenerateResource.Cache
+C:\Users\adriana.borges\Downloads\EnviarEmail\EnviarEmail\EnviarEmail\obj\Debug\EnviarEmail.exe
+C:\Users\adriana.borges\Downloads\EnviarEmail\EnviarEmail\EnviarEmail\obj\Debug\EnviarEmail.pdb

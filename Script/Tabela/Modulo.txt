@@ -1,0 +1,33 @@
+
+USE [dbAgencia]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create TABLE [dbo].[Modulo](
+	[idmodulo] [int] IDENTITY(1,1) NOT NULL,
+	[idformulario] [int] null,
+	[descricao] [nvarchar](100) NULL
+
+) ON [PRIMARY]
+
+
+
+
+insert into modulo (idformulario, descricao) values (2, 'COLABORADOR')
+insert into modulo (idformulario, descricao) values (3, 'CENTRO DE CUSTO')
+insert into modulo (idformulario, descricao) values (4, 'FIGURANTE')
+insert into modulo (idformulario, descricao) values (5, 'LANÇAMENTO')
+insert into modulo (idformulario, descricao) values (6, 'MOVIMENTO DE CAIXA')
+insert into modulo (idformulario, descricao) values (7, 'FOLHA DE PAGAMENTO')
+insert into modulo (idformulario, descricao) values (8, 'PRODUTO\PROGRAMA')
+insert into modulo (idformulario, descricao) values (9, 'PEDIDO DE GRAVAÇÃO')
+insert into modulo (idformulario, descricao) values (10, 'CARTA FATURA')
+insert into modulo (idformulario, descricao) values (11, 'NOTA FISCAL')
+insert into modulo (idformulario, descricao) values (12, 'PROVISÃO DE PAGAMENTO DE FIGURAÇÃO')
+insert into modulo (idformulario, descricao) values (13, 'BAIXA DE PAGAMENTO DE CACHE')

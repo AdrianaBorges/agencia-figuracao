@@ -1,0 +1,450 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.0,Profile=Client": {
+      "Microsoft.ReportViewer.Common/10.0.40219.1": {
+        "type": "package",
+        "compile": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        }
+      },
+      "Microsoft.ReportViewer.WebForms/10.0.40219.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.ReportViewer.Common": "10.0.40219.1"
+        },
+        "frameworkAssemblies": [
+          "System.Web"
+        ],
+        "compile": {
+          "lib/Microsoft.ReportViewer.WebForms.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.WebForms.dll": {}
+        }
+      },
+      "Agencia.Dominio.Modelo/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Modelo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Modelo.dll": {}
+        }
+      },
+      "Agencia.Dominio.Repositorio/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0",
+          "Agencia.Infraestrutura.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Repositorio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Repositorio.dll": {}
+        }
+      },
+      "Agencia.Dominio.Servico/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0",
+          "Agencia.Dominio.Repositorio": "1.0.0",
+          "Agencia.Infraestrutura.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Servico.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Servico.dll": {}
+        }
+      },
+      "Agencia.Infraestrutura.DAL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Infraestrutura.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Infraestrutura.DAL.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0,Profile=Client/win": {
+      "Microsoft.ReportViewer.Common/10.0.40219.1": {
+        "type": "package",
+        "compile": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        }
+      },
+      "Microsoft.ReportViewer.WebForms/10.0.40219.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.ReportViewer.Common": "10.0.40219.1"
+        },
+        "frameworkAssemblies": [
+          "System.Web"
+        ],
+        "compile": {
+          "lib/Microsoft.ReportViewer.WebForms.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.WebForms.dll": {}
+        }
+      },
+      "Agencia.Dominio.Modelo/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Modelo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Modelo.dll": {}
+        }
+      },
+      "Agencia.Dominio.Repositorio/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0",
+          "Agencia.Infraestrutura.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Repositorio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Repositorio.dll": {}
+        }
+      },
+      "Agencia.Dominio.Servico/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0",
+          "Agencia.Dominio.Repositorio": "1.0.0",
+          "Agencia.Infraestrutura.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Servico.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Servico.dll": {}
+        }
+      },
+      "Agencia.Infraestrutura.DAL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Infraestrutura.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Infraestrutura.DAL.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0,Profile=Client/win-x64": {
+      "Microsoft.ReportViewer.Common/10.0.40219.1": {
+        "type": "package",
+        "compile": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        }
+      },
+      "Microsoft.ReportViewer.WebForms/10.0.40219.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.ReportViewer.Common": "10.0.40219.1"
+        },
+        "frameworkAssemblies": [
+          "System.Web"
+        ],
+        "compile": {
+          "lib/Microsoft.ReportViewer.WebForms.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.WebForms.dll": {}
+        }
+      },
+      "Agencia.Dominio.Modelo/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Modelo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Modelo.dll": {}
+        }
+      },
+      "Agencia.Dominio.Repositorio/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0",
+          "Agencia.Infraestrutura.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Repositorio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Repositorio.dll": {}
+        }
+      },
+      "Agencia.Dominio.Servico/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0",
+          "Agencia.Dominio.Repositorio": "1.0.0",
+          "Agencia.Infraestrutura.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Servico.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Servico.dll": {}
+        }
+      },
+      "Agencia.Infraestrutura.DAL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Infraestrutura.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Infraestrutura.DAL.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0,Profile=Client/win-x86": {
+      "Microsoft.ReportViewer.Common/10.0.40219.1": {
+        "type": "package",
+        "compile": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        }
+      },
+      "Microsoft.ReportViewer.WebForms/10.0.40219.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.ReportViewer.Common": "10.0.40219.1"
+        },
+        "frameworkAssemblies": [
+          "System.Web"
+        ],
+        "compile": {
+          "lib/Microsoft.ReportViewer.WebForms.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.WebForms.dll": {}
+        }
+      },
+      "Agencia.Dominio.Modelo/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Modelo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Modelo.dll": {}
+        }
+      },
+      "Agencia.Dominio.Repositorio/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0",
+          "Agencia.Infraestrutura.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Repositorio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Repositorio.dll": {}
+        }
+      },
+      "Agencia.Dominio.Servico/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0",
+          "Agencia.Dominio.Repositorio": "1.0.0",
+          "Agencia.Infraestrutura.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Dominio.Servico.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Dominio.Servico.dll": {}
+        }
+      },
+      "Agencia.Infraestrutura.DAL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Agencia.Dominio.Modelo": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Agencia.Infraestrutura.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Agencia.Infraestrutura.DAL.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Microsoft.ReportViewer.Common/10.0.40219.1": {
+      "sha512": "BvYKVVgeRwdwiqCDUdIbaV179YIXg4RD+MlHI4KndReULmM2xO6KGlYmxOOMB/Lq5ktwFuMVyChbZgpgUqEgHw==",
+      "type": "package",
+      "path": "microsoft.reportviewer.common/10.0.40219.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Microsoft.ReportViewer.Common.dll",
+        "lib/Microsoft.ReportViewer.DataVisualization.dll",
+        "lib/Microsoft.ReportViewer.ProcessingObjectModel.dll",
+        "microsoft.reportviewer.common.10.0.40219.1.nupkg.sha512",
+        "microsoft.reportviewer.common.nuspec"
+      ]
+    },
+    "Microsoft.ReportViewer.WebForms/10.0.40219.1": {
+      "sha512": "tQoaMDAJunxuwr7G/NIWmPr56BBoB2noTIdaTqr8HqEIjzNhvt5PpDfbkehIzr4sbyTxdNQjglVKzoEQ11+AOg==",
+      "type": "package",
+      "path": "microsoft.reportviewer.webforms/10.0.40219.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Microsoft.ReportViewer.WebForms.dll",
+        "microsoft.reportviewer.webforms.10.0.40219.1.nupkg.sha512",
+        "microsoft.reportviewer.webforms.nuspec"
+      ]
+    },
+    "Agencia.Dominio.Modelo/1.0.0": {
+      "type": "project",
+      "path": "../Agencia.Dominio.Modelo/Agencia.Dominio.Modelo.csproj",
+      "msbuildProject": "../Agencia.Dominio.Modelo/Agencia.Dominio.Modelo.csproj"
+    },
+    "Agencia.Dominio.Repositorio/1.0.0": {
+      "type": "project",
+      "path": "../Agencia.Dominio.Repositorio/Agencia.Dominio.Repositorio.csproj",
+      "msbuildProject": "../Agencia.Dominio.Repositorio/Agencia.Dominio.Repositorio.csproj"
+    },
+    "Agencia.Dominio.Servico/1.0.0": {
+      "type": "project",
+      "path": "../Agencia.Dominio.Servico/Agencia.Dominio.Servico.csproj",
+      "msbuildProject": "../Agencia.Dominio.Servico/Agencia.Dominio.Servico.csproj"
+    },
+    "Agencia.Infraestrutura.DAL/1.0.0": {
+      "type": "project",
+      "path": "../Agencia.Infraestrutura.DAL/Agencia.Infraestrutura.DAL.csproj",
+      "msbuildProject": "../Agencia.Infraestrutura.DAL/Agencia.Infraestrutura.DAL.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.0,Profile=Client": [
+      "Agencia.Dominio.Modelo >= 1.0.0",
+      "Agencia.Dominio.Repositorio >= 1.0.0",
+      "Agencia.Dominio.Servico >= 1.0.0",
+      "Agencia.Infraestrutura.DAL >= 1.0.0",
+      "Microsoft.ReportViewer.Common >= 10.0.40219.1",
+      "Microsoft.ReportViewer.WebForms >= 10.0.40219.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\adrianaborges\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\Agencia.Relatorios.csproj",
+      "projectName": "Agencia.Relatorios",
+      "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\Agencia.Relatorios.csproj",
+      "packagesPath": "C:\\Users\\adrianaborges\\.nuget\\packages\\",
+      "outputPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Relatorios\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\adrianaborges\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net40-client"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://azuredevops.tjrj.jus.br/tjerj/_packaging/ComponentesTJERJ/nuget/v3/index.json": {},
+        "https://www.nuget.org/api/v2/": {}
+      },
+      "frameworks": {
+        "net40-client": {
+          "projectReferences": {
+            "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj": {
+              "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Modelo\\Agencia.Dominio.Modelo.csproj"
+            },
+            "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj": {
+              "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Repositorio\\Agencia.Dominio.Repositorio.csproj"
+            },
+            "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Servico\\Agencia.Dominio.Servico.csproj": {
+              "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Dominio.Servico\\Agencia.Dominio.Servico.csproj"
+            },
+            "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj": {
+              "projectPath": "E:\\Borges.TJ\\ProjetoAgencia\\Agencia.Infraestrutura.DAL\\Agencia.Infraestrutura.DAL.csproj"
+            }
+          }
+        }
+      }
+    },
+    "frameworks": {
+      "net40-client": {
+        "dependencies": {
+          "Microsoft.ReportViewer.Common": {
+            "target": "Package",
+            "version": "[10.0.40219.1, )"
+          },
+          "Microsoft.ReportViewer.WebForms": {
+            "target": "Package",
+            "version": "[10.0.40219.1, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

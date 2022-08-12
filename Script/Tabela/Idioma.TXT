@@ -1,0 +1,33 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Idioma]    Script Date: 24/04/2014 12:03:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Idioma](
+	[ididioma] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[ItensIdioma](
+	[iditem] [int] IDENTITY(1,1) NOT NULL,
+	[idpessoa] int NULL,
+	[ididioma] int NULL
+) ON [PRIMARY]
+
+GO
+
+insert into idioma (descricao) values ('ALEMÃO')
+insert into idioma (descricao) values ('ARABE')
+insert into idioma (descricao) values ('CHINÊS')
+insert into idioma (descricao) values ('ESPANHOL')
+insert into idioma (descricao) values ('FRANCES')
+insert into idioma (descricao) values ('INGLÊS')
+insert into idioma (descricao) values ('ITALIANO')
+insert into idioma (descricao) values ('JAPONÊS')
+insert into idioma (descricao) values ('RUSSO')
+

@@ -1,0 +1,24 @@
+-- Prioridade
+
+-- 01- analisar os relatórios ref. as pendências e pagamentos;
+-- 02- relatório de menor;
+-- 03- incluir na tela a opção para informar se o menor possui alvara;
+-- 04- fazer relatório dos figurantes com alvara;
+
+
+Ultimo alvará consentido: exibir data e número do processo
+
+Importante: Listar os objetos alterados para enviar por email
+
+-- frmPosicaoCache
+
+
+
+ var msg = "";
+ msg = "O figurante " + txtPessoa + ", possui" + "\n" + "Recibo(s) provisório(s) para o(s) pedido(s) selecionado(s). " + "\n";
+ msg += "\n" + "O usuário poderá proceder de acordo com as opções abaixo: " + "\n";
+ msg += "\n" + "1ª Baixar o pagto. pelo Recibo Provisório já criado, acessando o módulo 'Emissão\Recibo Provisório'.";
+ msg += "\n" + "2ª Excluir o "Recibo Provisório.";
+ 
+ 
+ 

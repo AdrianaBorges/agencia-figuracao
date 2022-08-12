@@ -1,0 +1,3 @@
+
+                ToolTip toolTips = new ToolTip();
+                toolTips.SetToolTip(txtNumConta, "O texto que você quer que apareça no tooltip");

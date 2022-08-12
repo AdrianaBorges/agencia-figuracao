@@ -1,0 +1,3 @@
+-Criar relatório de retenção de pgto de INSS (procedure [p_listaRetensaoInss]);
+-Ao cadastrar a conta bancária, verificar se a pessoa já possui conta com status 'ATIVO'... se sim... criticar;
+-Criar histórico individual para pagamento de retenção de INSS

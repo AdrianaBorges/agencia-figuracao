@@ -1,0 +1,46 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Figurante]    Script Date: 03/01/2014 20:42:12 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Figurante](
+	[idpessoa] [int] NULL,
+	[nmeartistico] [nvarchar](50) NULL,
+	[nacionalidade] [int] NULL,
+	[acesso] [nvarchar](20) NULL,
+	[pasta] [nvarchar](20) NULL,
+	[mae] [nvarchar](50) NULL,
+	[pai] [nvarchar](50) NULL,
+	[estadocivil] [nvarchar](50) NULL,
+	[dtdesligamento] [date] NULL,
+	[profissao] [nvarchar](50) NULL,
+	[registroator] [nvarchar](50) NULL,
+	[figurante] [int] NULL,
+	[ator] [int] NULL,
+	[modelo] [int] NULL,
+	[altura] [nvarchar](4) NULL,
+	[idadeap] [int] NULL,
+	[peso] [nvarchar](4) NULL,
+	[tipoetnico] [nvarchar](50) NULL,
+	[manequim] [nchar](20) NULL,
+	[calcado] [nchar](10) NULL,
+	[busto] [nvarchar](4) NULL,
+	[quadril] [nvarchar](4) NULL,
+	[cintura] [nvarchar](4) NULL,
+	[celebridade] [nvarchar](50) NULL,
+	[corolhos] [nvarchar](50) NULL,
+	[cabelo] [nvarchar](50) NULL,
+	[corcabelo] [nvarchar](50) NULL,
+	[tipocabelo] [nvarchar](50) NULL,
+	[corpele] [nvarchar](50) NULL,
+	[apdental] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+

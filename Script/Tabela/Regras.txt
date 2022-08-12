@@ -1,0 +1,20 @@
+USE [dbAgencia]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create TABLE [dbo].[Regras](
+	[idregra] [int] IDENTITY(1,1) NOT NULL,
+	[idsubmodulo] [int] null,
+    [data] [datetime]null,
+	[descricao] [nvarchar](100) NULL
+
+) ON [PRIMARY]
+
+
+
+Ativar módulo de unificação de base

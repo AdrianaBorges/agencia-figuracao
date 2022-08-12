@@ -1,0 +1,29 @@
+USE [dbAgencia]
+GO
+
+/****** Object:  Table [dbo].[Habilitacao]    Script Date: 03/05/2014 12:03:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Habilitacao](
+	[idhabilitacao] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[ItensHabilitacao](
+	[iditem] [int] IDENTITY(1,1) NOT NULL,
+	[idpessoa] [int] NULL,
+	[idhabilitacao] [int] null
+) ON [PRIMARY]
+
+insert into Habilitacao (descricao) values ('A')
+insert into Habilitacao (descricao) values ('B')
+insert into Habilitacao (descricao) values ('C')
+insert into Habilitacao (descricao) values ('D')
+insert into Habilitacao (descricao) values ('E')
+
